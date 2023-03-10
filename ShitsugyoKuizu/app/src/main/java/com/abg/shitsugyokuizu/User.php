@@ -19,7 +19,7 @@
 
         public function signUp($username, $unHashedPassword, $email, ){
             $hash = password_hash($unHashedPassword, PASSWORD_DEFAULT);
-            $query = self::$bdd->prepare("INSERT INTO utilisateur (pseudo, motdepasse, email) VALUES (:username, :password, :email, )");
+            $query = self::$bdd->prepare("INSERT INTO utilisateur (pseudo, motdepasse, email) VALUES (:username, :password, :email)");
             $query->execute(array(":username" => $username, ":password" => $hash, ":email" => $email));
         }
 
