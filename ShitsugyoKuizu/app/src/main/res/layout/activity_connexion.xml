@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:inputType="text"
-            android:text="Email ou pseudo" />
+            android:text="Email ou pseudo"
+            android:padding="15dp"/>
 
         <EditText
             android:id="@+id/mdp_Edit_Text"
@@ -30,7 +31,8 @@
             android:layout_gravity="center_vertical"
             android:gravity=""
             android:inputType="text"
-            android:text="Mot de Passe" />
+            android:text="Mot de Passe"
+            android:padding="15dp"/>
 
 
         <Button
@@ -39,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="Connexion"
+            android:textSize="15dp"
             android:backgroundTint="#6D071A"/>
 
 
@@ -49,6 +52,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:text="Inscription"
+            android:textSize="15dp"
             android:backgroundTint="#6D071A"/>
 
     </LinearLayout>
