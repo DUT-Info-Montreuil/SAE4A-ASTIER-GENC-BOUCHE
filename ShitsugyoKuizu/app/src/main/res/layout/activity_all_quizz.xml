@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AccueilActivity">
+    tools:context=".AllQuizz">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +13,7 @@
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/account_button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="75dp"
             android:layout_weight="0.5"
             android:background="@color/design_default_color_background"
@@ -23,25 +22,47 @@
             app:srcCompat="@drawable/profilIconWhite" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/dernierQuiz_textview"
-        android:layout_width="523dp"
-        android:layout_height="321dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="Dernier quiz effectué"
-        android:textColor="@color/black"
-        android:textSize="25dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/quiz_searchbar"
+            android:layout_width="386dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="text"
+            android:hint="Chercher des quiz"/>
+
+        <Toolbar
+            android:id="@+id/genre_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="100dp"/>
+</LinearLayout>
+
+
 
     <TextView
-        android:id="@+id/quizDuMois_textview"
+        android:id="@+id/quizPlusJoues_textview"
         android:layout_width="523dp"
         android:layout_height="321dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:text="Quiz du mois"
+        android:text="Quiz les plus joués"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/nouveauQuiz_textview"
+        android:layout_width="523dp"
+        android:layout_height="237dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="Nouveaux Quizs"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,14 +83,14 @@
 
         <ImageButton
             android:id="@+id/quiz_button"
-            android:layout_width="wrap_content"
+            android:layout_width="117dp"
             android:layout_height="82dp"
             android:layout_gravity="bottom"
             android:layout_weight="0.5"
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/interrogationWhite" />
+            app:srcCompat="@drawable/interrogationBlack" />
 
         <ImageButton
             android:id="@+id/trophy_button"
