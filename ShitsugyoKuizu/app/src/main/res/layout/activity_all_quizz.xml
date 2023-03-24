@@ -19,7 +19,7 @@
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="fitEnd"
-            app:srcCompat="@drawable/profilIconWhite" />
+            app:srcCompat="@drawable/profil_icon_white" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,7 +79,7 @@
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="center"
-            app:srcCompat="@drawable/plusWhite" />
+            app:srcCompat="@drawable/plus_white" />
 
         <ImageButton
             android:id="@+id/quiz_button"
@@ -90,7 +90,7 @@
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/interrogationBlack" />
+            app:srcCompat="@drawable/interrogation_black" />
 
         <ImageButton
             android:id="@+id/trophy_button"
@@ -101,7 +101,7 @@
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/trophyWhite" />
+            app:srcCompat="@drawable/trophy_white" />
 
     </LinearLayout>
 

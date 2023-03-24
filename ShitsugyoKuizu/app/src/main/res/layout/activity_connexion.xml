@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:inputType="text"
-            android:text="Email ou pseudo"
+            android:hint="Email ou pseudo"
             android:padding="15dp"/>
 
         <EditText
@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity=""
-            android:inputType="text"
-            android:text="Mot de Passe"
+            android:inputType="textPassword"
+            android:hint="Mot de Passe"
             android:padding="15dp"/>
 
 
