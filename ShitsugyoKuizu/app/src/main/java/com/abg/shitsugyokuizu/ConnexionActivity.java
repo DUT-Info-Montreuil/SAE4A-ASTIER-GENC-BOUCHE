@@ -2,6 +2,7 @@ package com.abg.shitsugyokuizu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ResponseDelivery;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -24,7 +26,7 @@ public class ConnexionActivity extends AppCompatActivity {
     private Button connexion;
     private Button inscription;
 
-    public final String urlApi ="http://10.0.2.2/connexion_app.php";
+    public final String urlApi ="http://127.0.1.1/connexion_app.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,6 @@ public class ConnexionActivity extends AppCompatActivity {
                 };
                 
                 queue.add(request);
-
             }
 
         });
@@ -72,9 +73,13 @@ public class ConnexionActivity extends AppCompatActivity {
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intentInscription = new Intent(ConnexionActivity.this, InscriptionActivity.class);
+                startActivity(intentInscription);
             }
         });
 
 
     }
+
+
 }
