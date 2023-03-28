@@ -37,7 +37,8 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="16dp" />
+            tools:layout_editor_absoluteY="16dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/dernierQuizUn_button"
@@ -45,7 +46,8 @@
             android:layout_height="60dp"
             android:text="A paramétrer"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="43dp" />
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/dernierQuizDeux_button"
@@ -53,7 +55,8 @@
             android:layout_height="60dp"
             android:text="A paramétrer"
             tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="43dp" />
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/dernierQuizTrois_button"
@@ -61,7 +64,8 @@
             android:layout_height="60dp"
             android:text="A paramétrer"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="117dp" />
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/dernierQuizQuatre_button"
@@ -69,7 +73,8 @@
             android:layout_height="60dp"
             android:text="A paramétrer"
             tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="117dp" />
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -85,7 +90,8 @@
             android:layout_marginTop="50dp"
             android:text="Quiz du mois"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/quizDuMoisUn_button"
@@ -93,7 +99,8 @@
             android:layout_height="60dp"
             android:text="A paramétrer"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="43dp" />
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/quizDuMoisDeux_button"
@@ -101,7 +108,8 @@
             android:layout_height="60dp"
             android:text="A paramétrer"
             tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="43dp" />
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/quizDuMoisTrois_button"
@@ -109,7 +117,8 @@
             android:layout_height="60dp"
             android:text="A paramétrer"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="117dp" />
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/quizDuMoisQuatre_button"
@@ -117,7 +126,8 @@
             android:layout_height="60dp"
             android:text="A paramétrer"
             tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="117dp" />
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
