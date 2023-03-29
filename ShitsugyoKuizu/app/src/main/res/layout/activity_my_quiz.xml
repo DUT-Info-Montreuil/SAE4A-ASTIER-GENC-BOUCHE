@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageButton
-            android:id="@+id/account_button"
-            android:layout_width="0dp"
+            android:id="@+id/accountMyQuiz_button"
+            android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_weight="0.5"
             android:background="@color/design_default_color_background"
@@ -32,30 +32,114 @@
         android:layout_margin="20dp"
         android:backgroundTint="#D3D3D3"/>
 
-    <TextView
-        android:id="@+id/vosQuizPlusJoues_textview"
-        android:layout_width="match_parent"
-        android:layout_height="156dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="Vos quiz les plus joués"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/dernierQuizCree_textview"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="154dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="Vos derniers quiz créés"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/vosQuizPlusJoues_textview"
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Vos quiz les plus joués"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/quizPlusJouesUn_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/quizPlusJouesDeux_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/quizPlusJouesTrois_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/quizPlusJouesQuatre_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/dernierQuizCree_textview"
+            android:layout_width="match_parent"
+            android:layout_height="154dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Vos derniers quiz créés"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/dernierQuizCreeUn_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/dernierQuizCreeDeux_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/dernierQuizCreeTrois_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/dernierQuizCreeQuatre_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/tousVosQuizz_button"
-        android:layout_width="381dp"
-        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
         android:layout_margin="20dp"
         android:backgroundTint="#D3D3D3"
         android:text="Tous vos quiz"
@@ -68,7 +152,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/plus_button"
+            android:id="@+id/plusMyQuiz_button"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:layout_gravity="bottom"
@@ -79,7 +163,7 @@
             app:srcCompat="@drawable/plus_black" />
 
         <ImageButton
-            android:id="@+id/quiz_button"
+            android:id="@+id/interroMyQuiz_button"
             android:layout_width="117dp"
             android:layout_height="82dp"
             android:layout_gravity="bottom"
@@ -90,7 +174,7 @@
             app:srcCompat="@drawable/interrogation_white" />
 
         <ImageButton
-            android:id="@+id/trophy_button"
+            android:id="@+id/trophyMyQuiz_button"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:layout_gravity="bottom"

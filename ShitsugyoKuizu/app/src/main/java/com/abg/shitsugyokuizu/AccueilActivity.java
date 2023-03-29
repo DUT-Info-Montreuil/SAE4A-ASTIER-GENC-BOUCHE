@@ -45,10 +45,10 @@ public class AccueilActivity extends AppCompatActivity {
         monthQuiz3.findViewById(R.id.quizDuMoisTrois_button);
         monthQuiz4.findViewById(R.id.quizDuMoisQuatre_button);
 
-        plusButton.findViewById(R.id.plus_button);
-        interroButton.findViewById(R.id.interro_button);
-        trophyButton.findViewById(R.id.trophy_button);
-        profilButton.findViewById(R.id.account_button);
+        plusButton.findViewById(R.id.plusAccueil_button);
+        interroButton.findViewById(R.id.interroAccueil_button);
+        trophyButton.findViewById(R.id.trophyAccueil_button);
+        profilButton.findViewById(R.id.accountAccueil_button);
 
         RequestQueue queue = Volley.newRequestQueue(this);
             StringRequest request = new StringRequest(Request.Method.POST, urlApi, new Response.Listener<String>() {
@@ -94,5 +94,6 @@ public class AccueilActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
+
     }
 }

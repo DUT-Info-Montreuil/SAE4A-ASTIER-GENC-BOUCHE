@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageButton
-            android:id="@+id/account_button"
+            android:id="@+id/accountAccueil_button"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_weight="0.5"
@@ -138,7 +138,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/plus_button"
+            android:id="@+id/plusAccueil_button"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:layout_gravity="bottom"
@@ -149,7 +149,7 @@
             app:srcCompat="@drawable/plus_white" />
 
         <ImageButton
-            android:id="@+id/interro_button"
+            android:id="@+id/interroAccueil_button"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:layout_gravity="bottom"
@@ -160,7 +160,7 @@
             app:srcCompat="@drawable/interrogation_white" />
 
         <ImageButton
-            android:id="@+id/trophy_button"
+            android:id="@+id/trophyAccueil_button"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:layout_gravity="bottom"
