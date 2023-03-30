@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageButton
-            android:id="@+id/account_button"
+            android:id="@+id/accountAllQuiz_button"
             android:layout_width="0dp"
             android:layout_height="75dp"
             android:layout_weight="0.5"
@@ -26,13 +26,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/quiz_searchbar"
-            android:layout_width="386dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:inputType="text"
-            android:hint="Chercher des quiz"/>
+            android:hint="Chercher des quiz"
+            android:inputType="text" />
 
         <Toolbar
             android:id="@+id/genre_bar"
@@ -40,28 +41,114 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="100dp"/>
-</LinearLayout>
+    </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/quizPlusJoues_textview"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="169dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="Quiz les plus joués"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/nouveauQuiz_textview"
+        <TextView
+            android:id="@+id/quizPlusJoues_textview"
+            android:layout_width="match_parent"
+            android:layout_height="169dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Quiz les plus joués"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/allQuizPlusJouesUn_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/allQuizPlusJouesDeux_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/allQuizPlusJouesTrois_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/allQuizPlusJouesQuatre_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="158dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="Nouveaux Quizs"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nouveauQuiz_textview"
+            android:layout_width="match_parent"
+            android:layout_height="158dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Nouveaux Quizs"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/nouveauQuizUn_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/nouveauQuizDeux_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="43dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/nouveauQuizTrois_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/nouveauQuizQuatre_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:text="A paramétrer"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="117dp"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,7 +157,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/plus_button"
+            android:id="@+id/plusAllQuiz_button"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:layout_gravity="bottom"
@@ -81,7 +168,7 @@
             app:srcCompat="@drawable/plus_white" />
 
         <ImageButton
-            android:id="@+id/quiz_button"
+            android:id="@+id/interroAllQuiz_button"
             android:layout_width="117dp"
             android:layout_height="82dp"
             android:layout_gravity="bottom"
@@ -92,7 +179,7 @@
             app:srcCompat="@drawable/interrogation_black" />
 
         <ImageButton
-            android:id="@+id/trophy_button"
+            android:id="@+id/trophyAllQuiz_button"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:layout_gravity="bottom"

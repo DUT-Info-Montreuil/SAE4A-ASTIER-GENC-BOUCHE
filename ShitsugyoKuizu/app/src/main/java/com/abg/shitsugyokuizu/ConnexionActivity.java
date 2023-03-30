@@ -44,7 +44,8 @@ public class ConnexionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                StringRequest request = new StringRequest(Request.Method.POST, urlApi, new Response.Listener<String>() {
+                StringRequest request = new StringRequest(Request.Method.POST, urlApi,
+                        new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ConnexionActivity.this, response, Toast.LENGTH_SHORT).show();

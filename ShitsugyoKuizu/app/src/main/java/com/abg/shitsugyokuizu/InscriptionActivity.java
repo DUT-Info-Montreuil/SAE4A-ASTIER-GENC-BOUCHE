@@ -2,6 +2,7 @@ package com.abg.shitsugyokuizu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +47,11 @@ public class InscriptionActivity extends AppCompatActivity {
                     StringRequest request = new StringRequest(Request.Method.POST, urlApi, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            Toast.makeText(InscriptionActivity.this, response, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(InscriptionActivity.this,
+                                    "Les mots de passes ne correspondent pas",
+                                    Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(InscriptionActivity.this, AccueilActivity.class);
+                                startActivity(intent);
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -66,6 +71,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     };
 
                     queue.add(request);
+                    queue.start();
                 } else {
                     Toast.makeText(InscriptionActivity.this,
                             "Les mots de passes ne correspondent pas",
