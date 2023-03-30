@@ -53,7 +53,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     String emaili = email.getText().toString();
                     String password = mdp.getText().toString();
                     String url = "http://192.168.56.1/inscription_app.php"; //A modifier selon les machines
-                    String type = "login";
+                    String type = "register";
                     BackgroundWorker backgroundWorker = new BackgroundWorker(InscriptionActivity.this);
                     backgroundWorker.execute(url,type,pseudoi,emaili,password);
                 } else {
