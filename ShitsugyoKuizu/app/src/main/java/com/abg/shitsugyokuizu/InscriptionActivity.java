@@ -1,9 +1,14 @@
 package com.abg.shitsugyokuizu;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.text.format.Formatter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,36 +47,15 @@ public class InscriptionActivity extends AppCompatActivity {
 
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if(confirmMdp.getText().toString().equals(mdp.getText().toString())) {
-                    StringRequest request = new StringRequest(Request.Method.POST, urlApi, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Toast.makeText(InscriptionActivity.this,
-                                    "Les mots de passes ne correspondent pas",
-                                    Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(InscriptionActivity.this, AccueilActivity.class);
-                                startActivity(intent);
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-
-                        }
-
-                    }) {
-                        @Override
-                        protected Map<String, String> getParams() {
-                            Map<String, String> parametres = new HashMap<>();
-                            parametres.put("pseudo", pseudo.getText().toString());
-                            parametres.put("email", email.getText().toString());
-                            parametres.put("mdp", mdp.getText().toString());
-                            return parametres;
-                        }
-                    };
-
-                    queue.add(request);
-                    queue.start();
+            public void onClick(View v) {
+               if(confirmMdp.getText().toString().equals(mdp.getText().toString())) {
+                    String pseudoi = pseudo.getText().toString();
+                    String emaili = email.getText().toString();
+                    String password = mdp.getText().toString();
+                    String url = "http://192.168.56.1/inscription_app.php"; //A modifier selon les machines
+                    String type = "login";
+                    BackgroundWorker backgroundWorker = new BackgroundWorker(InscriptionActivity.this);
+                    backgroundWorker.execute(url,type,pseudoi,emaili,password);
                 } else {
                     Toast.makeText(InscriptionActivity.this,
                             "Les mots de passes ne correspondent pas",

@@ -26,7 +26,7 @@ public class ConnexionActivity extends AppCompatActivity {
     private Button connexion;
     private Button inscription;
 
-    public final String urlApi ="http://127.0.1.1/connexion_app.php";
+    public final String urlApi ="http://10.0.0.2/connexion_app.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,10 @@ public class ConnexionActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ConnexionActivity.this, response, Toast.LENGTH_SHORT).show();
+                        if(response.equals("true")) {
+                            Intent intent = new Intent(ConnexionActivity.this, AccueilActivity.class);
+                            startActivity(intent);
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -67,6 +71,7 @@ public class ConnexionActivity extends AppCompatActivity {
                 };
                 
                 queue.add(request);
+                queue.start();
             }
 
         });
