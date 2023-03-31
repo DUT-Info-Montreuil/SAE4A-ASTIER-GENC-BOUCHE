@@ -24,17 +24,17 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         context = ctx;
     }
     @Override
-    protected String doInBackground(String... params) {
-        String login_url = params[0];
+    protected String doInBackground(String[] params) {
+        String urlp = params[0];
         String type = params[1];
         String pseudo = params[2];
         String email = params[3];
         String password = params[4];
         try {
 
-            URL url = new URL(login_url);
+            URL url = new URL(urlp);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
             OutputStream outputStream = httpURLConnection.getOutputStream();

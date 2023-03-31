@@ -26,7 +26,7 @@ public class ConnexionActivity extends AppCompatActivity {
     private Button connexion;
     private Button inscription;
 
-    public final String urlApi ="http://10.0.0.2/connexion_app.php";
+    public final String urlApi ="http://192.168.56.1/connexion_app.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class ConnexionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                StringRequest request = new StringRequest(Request.Method.POST, urlApi,
+                StringRequest request = new StringRequest(Request.Method.GET, urlApi,
                         new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -49,13 +49,15 @@ public class InscriptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                if(confirmMdp.getText().toString().equals(mdp.getText().toString())) {
-                    String pseudoi = pseudo.getText().toString();
-                    String emaili = email.getText().toString();
-                    String password = mdp.getText().toString();
-                    String url = "http://192.168.56.1/inscription_app.php"; //A modifier selon les machines
-                    String type = "register";
-                    BackgroundWorker backgroundWorker = new BackgroundWorker(InscriptionActivity.this);
-                    backgroundWorker.execute(url,type,pseudoi,emaili,password);
+//                    String pseudoi = pseudo.getText().toString();
+//                    String emaili = email.getText().toString();
+//                    String password = mdp.getText().toString();
+//                    String url = "http://192.168.56.1/inscription_app.php"; //A modifier selon les machines
+//                    String type = "register";
+//                    BackgroundWorker backgroundWorker = new BackgroundWorker(InscriptionActivity.this);
+//                    backgroundWorker.execute(url,type,pseudoi,emaili,password);
+                   RequestTask rq = new RequestTask();
+                   rq.execute("http://192.168.56.1/inscription_app.php?pseudo="+ pseudo.getText().toString() + "&email=" + email.getText().toString() + "&mdp="+ mdp.getText().toString());
                 } else {
                     Toast.makeText(InscriptionActivity.this,
                             "Les mots de passes ne correspondent pas",
