@@ -54,7 +54,8 @@ public class InscriptionActivity extends AppCompatActivity implements AsyncRespo
                 StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(response.contains("Inscription réussie")) {
+                        System.out.println(response);
+                        if(response.contains("Inscription done")) {
                             Intent intent = new Intent(InscriptionActivity.this, AccueilActivity.class);
                             startActivity(intent);
                         }
