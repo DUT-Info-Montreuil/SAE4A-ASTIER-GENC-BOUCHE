@@ -4,6 +4,7 @@ import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
@@ -24,15 +25,16 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InscriptionActivity extends AppCompatActivity {
+public class InscriptionActivity extends AppCompatActivity implements AsyncResponse{
 
     private EditText pseudo;
     private EditText email;
     private EditText mdp;
     private EditText confirmMdp;
     private Button inscription;
+    private String result ="";
 
-    public final String urlApi ="http://127.0.0.1/inscription_app.php";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,22 +50,30 @@ public class InscriptionActivity extends AppCompatActivity {
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if(confirmMdp.getText().toString().equals(mdp.getText().toString())) {
-//                    String pseudoi = pseudo.getText().toString();
-//                    String emaili = email.getText().toString();
-//                    String password = mdp.getText().toString();
-//                    String url = "http://192.168.56.1/inscription_app.php"; //A modifier selon les machines
-//                    String type = "register";
-//                    BackgroundWorker backgroundWorker = new BackgroundWorker(InscriptionActivity.this);
-//                    backgroundWorker.execute(url,type,pseudoi,emaili,password);
-                   RequestTask rq = new RequestTask();
-                   rq.execute("http://192.168.56.1/inscription_app.php?pseudo="+ pseudo.getText().toString() + "&email=" + email.getText().toString() + "&mdp="+ mdp.getText().toString());
-                } else {
-                    Toast.makeText(InscriptionActivity.this,
-                            "Les mots de passes ne correspondent pas",
-                            Toast.LENGTH_SHORT).show();
-                }
+                String url = "http://192.168.56.1/inscription_app.php?pseudo="+ pseudo.getText().toString() + "&email=" + email.getText().toString() + "&mdp="+ mdp.getText().toString();
+                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(response.contains("Inscription réussie")) {
+                            Intent intent = new Intent(InscriptionActivity.this, AccueilActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("Erreur inscription");                    }
+                });
+
+                queue.add(request);
             }
         });
     }
+
+    @Override
+    public void processFinish(String output) {
+        this.result = output;
+    }
+
 }

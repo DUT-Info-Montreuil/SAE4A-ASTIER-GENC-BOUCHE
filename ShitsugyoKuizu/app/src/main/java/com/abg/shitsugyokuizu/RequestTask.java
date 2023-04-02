@@ -2,7 +2,10 @@ package com.abg.shitsugyokuizu;
 
 import android.os.AsyncTask;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.io.output.ByteArrayOutputStream;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.HttpEntity;
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.HttpResponse;
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.HttpStatus;
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.StatusLine;
@@ -11,9 +14,19 @@ import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.H
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.methods.HttpGet;
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.impl.client.DefaultHttpClient;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 class RequestTask extends AsyncTask<String, String, String> {
+
+    public AsyncResponse delegate = null;
+    String finalResult = "";
+
+    public String getFinalResult() {
+        return finalResult;
+    }
 
     @Override
     protected String doInBackground(String... uri) {
@@ -23,6 +36,19 @@ class RequestTask extends AsyncTask<String, String, String> {
         try {
             response = httpclient.execute(new HttpGet(uri[0]));
             StatusLine statusLine = response.getStatusLine();
+//            StringBuilder builder = new StringBuilder();
+//            HttpEntity entity = response.getEntity();
+//            InputStream content = entity.getContent();
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(content, "UTF-8"));
+//            String line = null;
+//            while((line = reader.readLine()) != null) {
+//                builder.append(line);
+//            }
+//
+//            finalResult = builder.toString();
+
+//            response = httpclient.execute(new HttpGet(uri[0]));
+//            statusLine = response.getStatusLine();
             if(statusLine.getStatusCode() == HttpStatus.SC_OK){
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 response.getEntity().writeTo(out);
@@ -43,7 +69,6 @@ class RequestTask extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        super.onPostExecute(result);
-        //Do anything with response..
+        delegate.processFinish(result);
     }
 }
