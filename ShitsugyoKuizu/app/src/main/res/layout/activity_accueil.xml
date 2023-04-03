@@ -14,13 +14,15 @@
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/accountAccueil_button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="75dp"
             android:layout_weight="0.5"
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="fitEnd"
-            app:srcCompat="@drawable/profil_icon_white" />
+            app:srcCompat="@drawable/profil_icon_white"
+            android:contentDescription="leadsToAccountActivity(not created yet)" />
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +37,7 @@
             android:layout_gravity="center"
             android:text="Dernier quiz effectué"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="20sp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="16dp"
             tools:ignore="MissingConstraints" />
@@ -90,7 +92,7 @@
             android:layout_marginTop="50dp"
             android:text="Quiz du mois"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="20sp"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -146,7 +148,8 @@
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="center"
-            app:srcCompat="@drawable/plus_white" />
+            app:srcCompat="@drawable/plus_white"
+            android:contentDescription="leadsToMyQuiz" />
 
         <ImageButton
             android:id="@+id/interroAccueil_button"
@@ -157,7 +160,9 @@
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/interrogation_white" />
+            app:srcCompat="@drawable/interrogation_white"
+            android:contentDescription="leadsToAllQuiz" />
+
 
         <ImageButton
             android:id="@+id/trophyAccueil_button"
@@ -168,7 +173,8 @@
             android:background="@color/design_default_color_background"
             android:backgroundTint="#095228"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/trophy_white" />
+            app:srcCompat="@drawable/trophy_white"
+            android:contentDescription="leadsToTrophyActivity(not created yet)" />
 
     </LinearLayout>
 

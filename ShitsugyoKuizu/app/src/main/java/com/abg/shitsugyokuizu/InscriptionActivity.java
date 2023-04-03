@@ -25,7 +25,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InscriptionActivity extends AppCompatActivity implements AsyncResponse{
+public class InscriptionActivity extends AppCompatActivity{
 
     private EditText pseudo;
     private EditText email;
@@ -70,11 +70,6 @@ public class InscriptionActivity extends AppCompatActivity implements AsyncRespo
                 queue.add(request);
             }
         });
-    }
-
-    @Override
-    public void processFinish(String output) {
-        this.result = output;
     }
 
 }

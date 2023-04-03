@@ -26,8 +26,6 @@ public class ConnexionActivity extends AppCompatActivity {
     private Button connexion;
     private Button inscription;
 
-    public final String urlApi ="http://192.168.56.1/connexion_app.php";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,13 +41,13 @@ public class ConnexionActivity extends AppCompatActivity {
         connexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                StringRequest request = new StringRequest(Request.Method.POST, urlApi,
+                String url = "http://192.168.56.1/connexion_app.php?pseudo=" + pseudo.getText().toString() + "&mdp=" + mdp.getText().toString();
+                StringRequest request = new StringRequest(Request.Method.GET, url,
                         new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ConnexionActivity.this, response, Toast.LENGTH_SHORT).show();
-                        if(response.equals("true")) {
+                        if(response.contains("Connecte")) {
                             Intent intent = new Intent(ConnexionActivity.this, AccueilActivity.class);
                             startActivity(intent);
                         }
@@ -57,21 +55,12 @@ public class ConnexionActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        
+                        System.out.println("Erreur connexion");
                     }
 
-                }){
-                    @Override
-                    protected Map<String, String> getParams(){
-                        Map<String, String> parametres = new HashMap<>();
-                        parametres.put("pseudo", pseudo.getText().toString());
-                        parametres.put("mdp", mdp.getText().toString());
-                        return parametres;
-                    }
-                };
+                });
                 
                 queue.add(request);
-                queue.start();
             }
 
         });
