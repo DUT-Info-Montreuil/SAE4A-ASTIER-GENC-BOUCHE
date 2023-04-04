@@ -25,113 +25,121 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="181dp"
+        android:layout_height="204dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/dernierQuiz_textview"
-            android:layout_width="413dp"
-            android:layout_height="207dp"
-            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
             android:text="Dernier quiz effectué"
             android:textColor="@color/black"
             android:textSize="20sp"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="16dp"
-            tools:ignore="MissingConstraints" />
+            tools:layout_editor_absoluteY="16dp" />
 
-        <Button
-            android:id="@+id/dernierQuizUn_button"
-            android:layout_width="175dp"
-            android:layout_height="60dp"
-            android:text="A paramétrer"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="43dp"
-            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/dernierQuizDeux_button"
-            android:layout_width="175dp"
-            android:layout_height="60dp"
-            android:text="A paramétrer"
-            tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="43dp"
-            tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/dernierQuizUn_button"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="A paramétrer"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="43dp" />
 
-        <Button
-            android:id="@+id/dernierQuizTrois_button"
-            android:layout_width="175dp"
-            android:layout_height="60dp"
-            android:text="A paramétrer"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="117dp"
-            tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/dernierQuizDeux_button"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="A paramétrer"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="229dp"
+                tools:layout_editor_absoluteY="43dp" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/dernierQuizQuatre_button"
-            android:layout_width="175dp"
-            android:layout_height="60dp"
-            android:text="A paramétrer"
-            tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="117dp"
-            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dernierQuizTrois_button"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="A paramétrer" />
+
+            <Button
+                android:id="@+id/dernierQuizQuatre_button"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="A paramétrer" />
+        </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="181dp">
+
         <TextView
             android:id="@+id/quizDuMois_textview"
-            android:layout_width="match_parent"
-            android:layout_height="196dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
             android:text="Quiz du mois"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            tools:ignore="MissingConstraints" />
+            android:textSize="20sp"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
             android:id="@+id/quizDuMoisUn_button"
             android:layout_width="175dp"
             android:layout_height="60dp"
-            android:text="A paramétrer"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="43dp"
-            tools:ignore="MissingConstraints" />
+            android:layout_margin="10dp"
+            android:text="A paramétrer" />
 
         <Button
             android:id="@+id/quizDuMoisDeux_button"
             android:layout_width="175dp"
             android:layout_height="60dp"
-            android:text="A paramétrer"
-            tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="43dp"
-            tools:ignore="MissingConstraints" />
+            android:layout_margin="10dp"
+            android:text="A paramétrer" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
             android:id="@+id/quizDuMoisTrois_button"
             android:layout_width="175dp"
             android:layout_height="60dp"
-            android:text="A paramétrer"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="117dp"
-            tools:ignore="MissingConstraints" />
+            android:layout_margin="10dp"
+            android:text="A paramétrer" />
 
         <Button
             android:id="@+id/quizDuMoisQuatre_button"
             android:layout_width="175dp"
             android:layout_height="60dp"
-            android:text="A paramétrer"
-            tools:layout_editor_absoluteX="229dp"
-            tools:layout_editor_absoluteY="117dp"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_margin="10dp"
+            android:text="A paramétrer" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
