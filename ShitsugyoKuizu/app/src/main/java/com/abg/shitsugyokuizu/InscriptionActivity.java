@@ -50,7 +50,7 @@ public class InscriptionActivity extends AppCompatActivity{
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.56.1/inscription_app.php?pseudo="+ pseudo.getText().toString() + "&email=" + email.getText().toString() + "&mdp="+ mdp.getText().toString();
+                String url = "http://192.168.1.34/inscription_app.php?pseudo="+ pseudo.getText().toString() + "&email=" + email.getText().toString() + "&mdp="+ mdp.getText().toString();
                 StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
