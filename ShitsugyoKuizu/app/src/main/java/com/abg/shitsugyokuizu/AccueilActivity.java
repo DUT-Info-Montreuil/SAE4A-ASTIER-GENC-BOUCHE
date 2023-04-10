@@ -1,13 +1,13 @@
 package com.abg.shitsugyokuizu;
 
+import  androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.abg.shitsugyokuizu.data.API;
 import com.abg.shitsugyokuizu.data.RetrofitClientInstance;
@@ -55,17 +55,10 @@ public class AccueilActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<QuestionnaireJoue>> call, Response<List<QuestionnaireJoue>> response) {
                 List<QuestionnaireJoue> questionnaires = response.body();
-                try {
-                    lastQuiz1.setText(questionnaires.get(0).getIntitule());
-                    lastQuiz2.setText(questionnaires.get(1).getIntitule());
-                    lastQuiz3.setText(questionnaires.get(2).getIntitule());
-                    lastQuiz4.setText(questionnaires.get(3).getIntitule());
-                } catch (Exception e) {
-                    lastQuiz1.setVisibility(View.INVISIBLE);
-                    lastQuiz2.setVisibility(View.INVISIBLE);
-                    lastQuiz3.setVisibility(View.INVISIBLE);
-                    lastQuiz4.setVisibility(View.INVISIBLE);
-                }
+                lastQuiz1.setText(questionnaires.get(0).getIntitule());
+                lastQuiz2.setText(questionnaires.get(1).getIntitule());
+                lastQuiz3.setText(questionnaires.get(2).getIntitule());
+                lastQuiz4.setText(questionnaires.get(3).getIntitule());
             }
 
             @Override
