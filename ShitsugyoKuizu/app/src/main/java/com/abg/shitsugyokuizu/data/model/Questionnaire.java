@@ -4,6 +4,7 @@ public class Questionnaire {
     private int id;
     private String intitule;
 
+
     public Questionnaire(int id, String intitule) {
         this.id = id;
         this.intitule = intitule;

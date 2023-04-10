@@ -139,7 +139,7 @@
     <Button
         android:id="@+id/tousVosQuizz_button"
         android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_height="67dp"
         android:layout_margin="20dp"
         android:backgroundTint="#D3D3D3"
         android:text="Tous vos quiz"

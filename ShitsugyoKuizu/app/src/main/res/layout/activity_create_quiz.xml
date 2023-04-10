@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateQuiz"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/accountMyQuiz_button"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="fitEnd"
+            app:srcCompat="@drawable/profil_icon_white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/titreQuestionnaire_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Titre du questionnaire"/>
+
+        <EditText
+            android:id="@+id/questionText_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Texte de la question"/>
+
+        <EditText
+            android:id="@+id/reponse1_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Réponse 1"/>
+
+        <EditText
+            android:id="@+id/reponse2_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Réponse 2"/>
+
+        <EditText
+            android:id="@+id/reponse3_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Réponse 3"/>
+
+        <EditText
+            android:id="@+id/reponse4_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Réponse 4"/>
+
+        <EditText
+            android:id="@+id/bonneReponse_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numéro de la bonne réponse"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/createQuiz_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="#DFAF2C"
+        android:text="Créer"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="112dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/question1_button"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#095228"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/question2_button"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#095228"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/question3_button"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#095228"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/question4_button"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#095228"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/question5_button"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#095228"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/question6_button"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#095228"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/question7_button"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#095228"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/question8_button"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#095228"
+            android:text="8" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/plusMyQuiz_button"
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="center"
+            app:srcCompat="@drawable/plus_black" />
+
+        <ImageButton
+            android:id="@+id/interroMyQuiz_button"
+            android:layout_width="117dp"
+            android:layout_height="82dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/interrogation_white" />
+
+        <ImageButton
+            android:id="@+id/trophyMyQuiz_button"
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/trophy_white" />
+
+    </LinearLayout>
+
+</LinearLayout>
