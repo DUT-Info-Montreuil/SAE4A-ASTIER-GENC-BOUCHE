@@ -7,10 +7,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.abg.shitsugyokuizu.data.API;
 import com.abg.shitsugyokuizu.data.RetrofitClientInstance;
+import com.abg.shitsugyokuizu.data.model.Questionnaire;
 import com.abg.shitsugyokuizu.data.model.QuestionnaireJoue;
 
 import java.util.List;
@@ -26,7 +29,7 @@ public class AccueilActivity extends AppCompatActivity {
 
     private TextView texte;
 
-
+    private ImageButton profilButton, plusButton, interroButton, trophyButton;
 
 
     @Override
@@ -51,6 +54,9 @@ public class AccueilActivity extends AppCompatActivity {
 
         API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
         Call<List<QuestionnaireJoue>> getQuest = api.getQuestionnaire(currentId);
+
+
+
         getQuest.enqueue(new Callback<List<QuestionnaireJoue>>() {
             @Override
             public void onResponse(Call<List<QuestionnaireJoue>> call, Response<List<QuestionnaireJoue>> response) {
@@ -67,6 +73,25 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
 
+
+        API apiQuestionnaireDuMois = RetrofitClientInstance.getRetrofitInstance().create(API.class);
+        Call<List<QuestionnaireJoue>> getQuestDuMois = apiQuestionnaireDuMois.getQuestionnaireDuMois();
+        getQuestDuMois.enqueue(new Callback<List<QuestionnaireJoue>>() {
+            @Override
+            public void onResponse(Call<List<QuestionnaireJoue>> call, Response<List<QuestionnaireJoue>> response) {
+                List<QuestionnaireJoue> questionnairesDuMois = response.body();
+                monthQuiz1.setText(questionnairesDuMois.get(0).getIntitule());
+                monthQuiz2.setText(questionnairesDuMois.get(1).getIntitule());
+                monthQuiz3.setText(questionnairesDuMois.get(2).getIntitule());
+                monthQuiz4.setText(questionnairesDuMois.get(3).getIntitule());
+            }
+
+
+            @Override
+            public void onFailure(Call<List<QuestionnaireJoue>> call, Throwable t) {
+                Toast.makeText(AccueilActivity.this, "Bruh", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 

@@ -1,5 +1,6 @@
 package com.abg.shitsugyokuizu.data;
 
+import com.abg.shitsugyokuizu.data.model.Questionnaire;
 import com.abg.shitsugyokuizu.data.model.QuestionnaireJoue;
 import com.abg.shitsugyokuizu.data.model.Utilisateur;
 
@@ -14,7 +15,12 @@ public interface API {
     @GET("dernier_quiz.php")
     Call<List<QuestionnaireJoue>> getQuestionnaire(@Query("id")int id);
 
+    @GET("getQuestionnaireDuMois.php")
+    Call<List<QuestionnaireJoue>> getQuestionnaireDuMois();
+
     @GET("getUser.php")
     Call<Utilisateur> getUtilisateur(@Query("nom") String nom);
+
+
 
 }
