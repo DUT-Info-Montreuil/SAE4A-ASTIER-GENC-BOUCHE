@@ -34,7 +34,7 @@ public class ConnexionActivity extends AppCompatActivity {
     private Button connexion;
     private Button inscription;
 
-    private static final String SHARED_PREF_USER_ID = "SHARED_PREF_USER_ID";
+    static final String SHARED_PREF_USER_ID = "SHARED_PREF_USER_ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,7 @@ public class ConnexionActivity extends AppCompatActivity {
                             recupId();
                             Intent intent = new Intent(ConnexionActivity.this, AccueilActivity.class);
                             startActivity(intent);
+                            finish();
                         }
 
                     }
@@ -84,6 +85,7 @@ public class ConnexionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentInscription = new Intent(ConnexionActivity.this, InscriptionActivity.class);
                 startActivity(intentInscription);
+                finish();
             }
         });
 

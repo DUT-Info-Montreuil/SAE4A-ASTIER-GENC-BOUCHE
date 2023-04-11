@@ -1,25 +1,26 @@
 package com.abg.shitsugyokuizu.data.model;
 
 public class QuestionnaireJoue {
-    private  int idUtilisteur;
+    private  int idUtilisateur;
     private  int idQuestionnaire;
-    private String date;
+    private String dateDeJeu;
     private String intitule;
+    private String dateDeCreation;
 
-
-    public QuestionnaireJoue(int idUtilisteur, int idQuestionnaire, String date, String intitule) {
-        this.idUtilisteur = idUtilisteur;
+    public QuestionnaireJoue(int idUtilisateur, int idQuestionnaire, String dateDeJeu, String intitule, String dateDeCreation) {
+        this.idUtilisateur = idUtilisateur;
         this.idQuestionnaire = idQuestionnaire;
-        this.date = date;
+        this.dateDeJeu = dateDeJeu;
         this.intitule = intitule;
+        this.dateDeCreation = dateDeCreation;
     }
 
-    public int getIdUtilisteur() {
-        return idUtilisteur;
+    public int getIdUtilisateur() {
+        return idUtilisateur;
     }
 
-    public void setIdUtilisteur(int idUtilisteur) {
-        this.idUtilisteur = idUtilisteur;
+    public void setIdUtilisateur(int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     public int getIdQuestionnaire() {
@@ -30,12 +31,12 @@ public class QuestionnaireJoue {
         this.idQuestionnaire = idQuestionnaire;
     }
 
-    public String getDate() {
-        return date;
+    public String getDateDeJeu() {
+        return dateDeJeu;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateDeJeu(String dateDeJeu) {
+        this.dateDeJeu = dateDeJeu;
     }
 
     public String getIntitule() {
@@ -44,5 +45,13 @@ public class QuestionnaireJoue {
 
     public void setIntitule(String intitule) {
         this.intitule = intitule;
+    }
+
+    public String getDateDeCreation() {
+        return dateDeCreation;
+    }
+
+    public void setDateDeCreation(String dateDeCreation) {
+        this.dateDeCreation = dateDeCreation;
     }
 }

@@ -1,12 +1,31 @@
 package com.abg.shitsugyokuizu;
 
+import static com.abg.shitsugyokuizu.ConnexionActivity.SHARED_PREF_USER_ID;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.abg.shitsugyokuizu.data.API;
+import com.abg.shitsugyokuizu.data.RetrofitClientInstance;
+import com.abg.shitsugyokuizu.data.model.Questionnaire;
+import com.abg.shitsugyokuizu.data.model.QuestionnaireJoue;
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import java.util.List;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MyQuiz extends AppCompatActivity {
 
@@ -44,6 +63,7 @@ public class MyQuiz extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MyQuiz.this, CreateQuiz.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -52,6 +72,52 @@ public class MyQuiz extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MyQuiz.this, AllQuizz.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        SharedPreferences spref = getSharedPreferences(SHARED_PREF_USER_ID, MODE_PRIVATE);
+        Map<String, Integer> s = (Map<String, Integer>) spref.getAll();
+
+        int userId = s.get("id");
+
+        API apiVosQuizPlusJoues = RetrofitClientInstance.getRetrofitInstance().create(API.class);
+        Call<List<Questionnaire>> getVosQuizPlusJoues = apiVosQuizPlusJoues.getDernierQuestionnaireCree(userId);
+        getVosQuizPlusJoues.enqueue(new Callback<List<Questionnaire>>() {
+            @Override
+            public void onResponse(Call<List<Questionnaire>> call, Response<List<Questionnaire>> response) {
+                List<Questionnaire> dernierQuestCree = response.body();
+                if(!response.body().isEmpty() && response.body()!=null) {
+                    quizPlusJoue1.setText(dernierQuestCree.get(0).getIntitule());
+                    quizPlusJoue2.setText(dernierQuestCree.get(1).getIntitule());
+                    quizPlusJoue3.setText(dernierQuestCree.get(2).getIntitule());
+                    quizPlusJoue4.setText(dernierQuestCree.get(3).getIntitule());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Questionnaire>> call, Throwable t) {
+                Toast.makeText(MyQuiz.this, "Bruh", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        API apiDernierQuestionnaireCree = RetrofitClientInstance.getRetrofitInstance().create(API.class);
+        Call<List<Questionnaire>> getDernierQuestCree = apiDernierQuestionnaireCree.getDernierQuestionnaireCree(userId);
+        getDernierQuestCree.enqueue(new Callback<List<Questionnaire>>() {
+            @Override
+            public void onResponse(Call<List<Questionnaire>> call, Response<List<Questionnaire>> response) {
+                List<Questionnaire> dernierQuestCree = response.body();
+                if(!response.body().isEmpty() && response.body()!=null) {
+                    dernierQuizCree1.setText(dernierQuestCree.get(0).getIntitule());
+                    dernierQuizCree2.setText(dernierQuestCree.get(1).getIntitule());
+                    dernierQuizCree3.setText(dernierQuestCree.get(2).getIntitule());
+                    dernierQuizCree4.setText(dernierQuestCree.get(3).getIntitule());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Questionnaire>> call, Throwable t) {
+                Toast.makeText(MyQuiz.this, "Bruh", Toast.LENGTH_SHORT).show();
             }
         });
 

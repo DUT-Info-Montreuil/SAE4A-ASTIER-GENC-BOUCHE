@@ -58,13 +58,15 @@ public class InscriptionActivity extends AppCompatActivity{
                         if(response.contains("Inscription done")) {
                             Intent intent = new Intent(InscriptionActivity.this, AccueilActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                     }
 
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        System.out.println("Erreur inscription");                    }
+                        System.out.println("Erreur inscription");
+                    }
                 });
 
                 queue.add(request);

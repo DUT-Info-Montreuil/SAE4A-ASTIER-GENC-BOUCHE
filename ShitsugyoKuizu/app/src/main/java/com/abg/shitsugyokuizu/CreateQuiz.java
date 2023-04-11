@@ -1,8 +1,11 @@
 package com.abg.shitsugyokuizu;
 
+import static com.abg.shitsugyokuizu.ConnexionActivity.SHARED_PREF_USER_ID;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -159,6 +163,11 @@ public class CreateQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                SharedPreferences spref = getSharedPreferences(SHARED_PREF_USER_ID, MODE_PRIVATE);
+                Map<String, Integer> s = (Map<String, Integer>) spref.getAll();
+
+                int userId = s.get("id");
+
                 ArrayList<Question> questions = createQuestionnaire();
 
                 for(Question q : questions) {
@@ -166,13 +175,16 @@ public class CreateQuiz extends AppCompatActivity {
                             + q.getTitreQuestionnaire() + "&intituleQuestion=" + q.getTitleQues()
                             + "&reponse1=" + q.getReponse1() + "&reponse2=" + q.getReponse2()
                             + "&reponse3=" + q.getReponse3() + "&reponse4=" + q.getReponse4() +
-                            "&bonneReponse=" +q.getnReponse();
+                            "&bonneReponse=" +q.getnReponse() + "&idUser=" + userId;
                     StringRequest request = new StringRequest(Request.Method.GET, url, new com.android.volley.Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             System.out.println(response);
                             if(response.contains("done")) {
-                                Toast.makeText(CreateQuiz.this, "Nice", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateQuiz.this, "Quiz créer avec succès", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(CreateQuiz.this, MyQuiz.class);
+                                startActivity(intent);
+                                finish();
                             }
                         }
 

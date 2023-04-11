@@ -1,21 +1,21 @@
 package com.abg.shitsugyokuizu.data.model;
 
 public class Questionnaire {
-    private int id;
+    private int idQuestionnaire;
     private String intitule;
 
 
     public Questionnaire(int id, String intitule) {
-        this.id = id;
+        this.idQuestionnaire = id;
         this.intitule = intitule;
     }
 
-    public int getId() {
-        return id;
+    public int getIdQuestionnaire() {
+        return idQuestionnaire;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdQuestionnaire(int idQuestionnaire) {
+        this.idQuestionnaire = idQuestionnaire;
     }
 
     public String getIntitule() {

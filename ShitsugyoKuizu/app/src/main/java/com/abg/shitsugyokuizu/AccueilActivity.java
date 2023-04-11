@@ -57,6 +57,7 @@ public class AccueilActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AccueilActivity.this, MyQuiz.class);
                 startActivity(intent);
+                finish();
             }
         });
 

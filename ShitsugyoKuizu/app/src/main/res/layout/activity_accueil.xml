@@ -54,9 +54,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
                 android:text="A paramétrer"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="43dp" />
+                android:backgroundTint="#DFAF2C" />
 
             <Button
                 android:id="@+id/dernierQuizDeux_button"
@@ -64,9 +62,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
                 android:text="A paramétrer"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="229dp"
-                tools:layout_editor_absoluteY="43dp" />
+                android:backgroundTint="#DFAF2C"/>
         </LinearLayout>
 
         <LinearLayout
@@ -79,14 +75,16 @@
                 android:layout_width="175dp"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:text="A paramétrer" />
+                android:text="A paramétrer"
+                android:backgroundTint="#DFAF2C" />
 
             <Button
                 android:id="@+id/dernierQuizQuatre_button"
                 android:layout_width="175dp"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:text="A paramétrer" />
+                android:text="A paramétrer"
+                android:backgroundTint="#DFAF2C" />
 
         </LinearLayout>
 
@@ -113,14 +111,16 @@
             android:layout_width="175dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:text="A paramétrer" />
+            android:text="A paramétrer"
+            android:backgroundTint="#DFAF2C" />
 
         <Button
             android:id="@+id/quizDuMoisDeux_button"
             android:layout_width="175dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:text="A paramétrer" />
+            android:text="A paramétrer"
+            android:backgroundTint="#DFAF2C" />
     </LinearLayout>
 
     <LinearLayout
@@ -132,14 +132,16 @@
             android:layout_width="175dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:text="A paramétrer" />
+            android:text="A paramétrer"
+            android:backgroundTint="#DFAF2C" />
 
         <Button
             android:id="@+id/quizDuMoisQuatre_button"
             android:layout_width="175dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:text="A paramétrer" />
+            android:text="A paramétrer"
+            android:backgroundTint="#DFAF2C" />
     </LinearLayout>
 
     <LinearLayout
