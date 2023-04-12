@@ -28,5 +28,6 @@ public interface API {
     @GET("getUser.php")
     Call<Utilisateur> getUtilisateur(@Query("nom") String nom);
 
-
+    @GET("getAllQuiz.php")
+    Call<List<Questionnaire>> getAllQuestionnaires();
 }

@@ -15,9 +15,13 @@ import android.widget.Toast;
 
 import com.abg.shitsugyokuizu.data.API;
 import com.abg.shitsugyokuizu.data.RetrofitClientInstance;
+import com.abg.shitsugyokuizu.data.model.DatabaseHelper;
+import com.abg.shitsugyokuizu.data.model.Question;
 import com.abg.shitsugyokuizu.data.model.Questionnaire;
 import com.abg.shitsugyokuizu.data.model.QuestionnaireJoue;
 
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -51,11 +55,21 @@ public class AccueilActivity extends AppCompatActivity {
         monthQuiz4 = (Button) findViewById(R.id.quizDuMoisQuatre_button);
 
         plusButton = (ImageButton) findViewById(R.id.plusAccueil_button);
+        interroButton = findViewById(R.id.interroAccueil_button);
 
         plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AccueilActivity.this, MyQuiz.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        interroButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccueilActivity.this, AllQuizz.class);
                 startActivity(intent);
                 finish();
             }
