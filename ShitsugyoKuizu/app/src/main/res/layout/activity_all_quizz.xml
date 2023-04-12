@@ -44,87 +44,11 @@
             android:layout_marginStart="100dp"/>
     </LinearLayout>
 
-
-<!--    &lt;!&ndash;<LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical">-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="59dp"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="A parametrer" />-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="59dp"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="A parametrer" />-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="59dp"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="A parametrer" />-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="59dp"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="A parametrer" />-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="59dp"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="A parametrer" />-->
-
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="59dp"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="A parametrer" />-->
-<!--    </LinearLayout>&ndash;&gt;-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_menu"
         android:layout_width="match_parent"
-        android:layout_height="521dp"
+        android:layout_height="427dp"
         android:scrollbars="horizontal" />
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="80dp"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:orientation="horizontal">-->
-
-<!--                <Button-->
-<!--                    android:id="@+id/previousPage_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_marginRight="10dp"-->
-<!--                    android:text="-"-->
-<!--                    android:layout_gravity="left"/>-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textview_page_number"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Numéro de page"-->
-<!--                    android:textSize="25sp"-->
-<!--                    android:layout_gravity="center"/>-->
-
-<!--                <Button-->
-<!--                    android:id="@+id/afterPage_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_marginRight="10dp"-->
-<!--                    android:text="-"-->
-<!--                    android:layout_gravity="right"/>-->
-<!--            </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"

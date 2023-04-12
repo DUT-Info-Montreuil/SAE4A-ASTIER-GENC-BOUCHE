@@ -32,7 +32,6 @@ import retrofit2.Response;
 
 public class AllQuizz extends AppCompatActivity {
     private SearchView searchBar;
-
     private RecyclerView recyclerViewMenu;
     ArrayList<Questionnaire> lesQuiz = new ArrayList<Questionnaire>();
     private QuestionnaireAdapter menuAdapter;
@@ -41,8 +40,6 @@ public class AllQuizz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_quizz);
-
-        searchBar = findViewById(R.id.quiz_searchbar);
 
         API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
         Call<List<Questionnaire>> getAllQuiz = api.getAllQuestionnaires();
@@ -66,7 +63,6 @@ public class AllQuizz extends AppCompatActivity {
             }
         });
 
-        recyclerViewMenu = findViewById(R.id.recyclerview_menu);
         menuAdapter = new QuestionnaireAdapter(lesQuiz);
 
         // Création d'un LinearLayoutManager pour afficher les éléments en liste déroulante
@@ -74,8 +70,25 @@ public class AllQuizz extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         // Configuration du RecyclerView avec l'adapter et le layout manager
+        recyclerViewMenu = findViewById(R.id.recyclerview_menu);
         recyclerViewMenu.setAdapter(menuAdapter);
         recyclerViewMenu.setLayoutManager(layoutManager);
+
+        searchBar = (SearchView) findViewById(R.id.quiz_searchbar);
+        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+
+                menuAdapter.filter(s);
+                System.out.println(menuAdapter.getItemCount());
+                return false;
+            }
+        });
 
     }
 
