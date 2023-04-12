@@ -53,6 +53,13 @@ public class QuizActivity extends AppCompatActivity {
         mAnswerButton3.setOnClickListener((View.OnClickListener) this);
         mAnswerButton4.setOnClickListener((View.OnClickListener) this);
 
+
+        Intent i = getIntent();
+        int idQuizz = i.getIntExtra("id",-1);
+        if (idQuizz!=-1){
+            
+        }
+
         if (savedInstanceState != null) {
             mScore = savedInstanceState.getInt(BUNDLE_STATE_SCORE);
             mRemainingQuestionCount = savedInstanceState.getInt(BUNDLE_STATE_QUESTION_COUNT);

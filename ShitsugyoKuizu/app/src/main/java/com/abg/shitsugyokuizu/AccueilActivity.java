@@ -3,8 +3,10 @@ package com.abg.shitsugyokuizu;
 import  androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -65,6 +67,38 @@ public class AccueilActivity extends AppCompatActivity {
                 lastQuiz2.setText(questionnaires.get(1).getIntitule());
                 lastQuiz3.setText(questionnaires.get(2).getIntitule());
                 lastQuiz4.setText(questionnaires.get(3).getIntitule());
+                lastQuiz1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnaires.get(0).getIdUtilisteur());
+                        startActivity(intent);
+                    }
+                });
+                lastQuiz2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnaires.get(1).getIdUtilisteur());
+                        startActivity(intent);
+                    }
+                });
+                lastQuiz3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnaires.get(2).getIdUtilisteur());
+                        startActivity(intent);
+                    }
+                });
+                lastQuiz4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnaires.get(3).getIdUtilisteur());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
@@ -76,6 +110,7 @@ public class AccueilActivity extends AppCompatActivity {
 
         API apiQuestionnaireDuMois = RetrofitClientInstance.getRetrofitInstance().create(API.class);
         Call<List<QuestionnaireJoue>> getQuestDuMois = apiQuestionnaireDuMois.getQuestionnaireDuMois();
+        List<QuestionnaireJoue> questionnairesDuMois;
         getQuestDuMois.enqueue(new Callback<List<QuestionnaireJoue>>() {
             @Override
             public void onResponse(Call<List<QuestionnaireJoue>> call, Response<List<QuestionnaireJoue>> response) {
@@ -84,6 +119,41 @@ public class AccueilActivity extends AppCompatActivity {
                 monthQuiz2.setText(questionnairesDuMois.get(1).getIntitule());
                 monthQuiz3.setText(questionnairesDuMois.get(2).getIntitule());
                 monthQuiz4.setText(questionnairesDuMois.get(3).getIntitule());
+
+
+                monthQuiz1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnairesDuMois.get(0).getIdUtilisteur());
+                        startActivity(intent);
+                    }
+                });
+
+                monthQuiz2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnairesDuMois.get(1).getIdUtilisteur());
+                        startActivity(intent);
+                    }
+                });
+                monthQuiz3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnairesDuMois.get(2).getIdUtilisteur());
+                        startActivity(intent);
+                    }
+                });
+                monthQuiz4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnairesDuMois.get(3).getIdUtilisteur());
+                        startActivity(intent);
+                    }
+                });
             }
 
 
@@ -92,6 +162,7 @@ public class AccueilActivity extends AppCompatActivity {
                 Toast.makeText(AccueilActivity.this, "Bruh", Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
 
