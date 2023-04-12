@@ -22,6 +22,9 @@ public interface API {
     @GET("getUser.php")
     Call<Utilisateur> getUtilisateur(@Query("nom") String nom);
 
+    @GET("getCurrUser.php")
+    Call<Utilisateur> getCurrUtilisateur();
+
     @GET("insert_question.php")
     Call<Question> insertQuestion(@Query("titreQuestionnaire") String titreQuestionnaire,
                                   @Query("intituleQuestion") String titreQuestion,
