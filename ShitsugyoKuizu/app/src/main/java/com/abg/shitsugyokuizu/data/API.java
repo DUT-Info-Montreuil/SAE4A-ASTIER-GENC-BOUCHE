@@ -19,12 +19,6 @@ public interface API {
     @GET("getQuestionnaireDuMois.php")
     Call<List<QuestionnaireJoue>> getQuestionnaireDuMois();
 
-    @GET("dernier_quiz_cree.php")
-    Call<List<Questionnaire>> getDernierQuestionnaireCree(@Query("idUser")int id);
-
-    @GET("vos_quiz_plus_joues.php")
-    Call<List<Questionnaire>> getVosQuizPlusJoues(@Query("idUser")int id);
-
     @GET("getUser.php")
     Call<Utilisateur> getUtilisateur(@Query("nom") String nom);
 
@@ -36,5 +30,17 @@ public interface API {
 
     @GET("getMaxid.php")
     Call<Integer> getMaxId();
+
+    @GET("getCurrUser.php")
+    Call<Utilisateur> getCurrUtilisateur();
+
+    @GET("insert_question.php")
+    Call<Question> insertQuestion(@Query("titreQuestionnaire") String titreQuestionnaire,
+                                  @Query("intituleQuestion") String titreQuestion,
+                                  @Query("reponse1") String reponse1,
+                                  @Query("reponse2") String reponse2,
+                                  @Query("reponse3") String reponse3,
+                                  @Query("reponse4") String reponse4,
+                                  @Query("bonneReponse") int iBonneReponse);
 
 }
