@@ -200,6 +200,7 @@ public class CreateQuiz extends AppCompatActivity {
                                 // storing our values in key and value pair.
                                 Map<String, String> params = new HashMap<String, String>();
 
+                                params.put("titreQuestionnaire", questionnaireText.getText().toString());
                                 params.put("intituleQuestion", q.getTitleQues());
                                 params.put("idUser", String.valueOf(userId));
                                 params.put("reponse1", q.getReponse1());
@@ -375,13 +376,8 @@ public class CreateQuiz extends AppCompatActivity {
     public ArrayList<Question> createQuestionnaire() {
         saveQuestion(nQuestion);
 
-
-        API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
-        Call<Integer> getMaxId = api.getMaxId();
         ArrayList<Question> listeQuestions = new ArrayList<Question>();
-        getMaxId.enqueue(new Callback<Integer>() {
-            @Override
-            public void onResponse(Call<Integer> call, retrofit2.Response<Integer> response) {
+
                 Question q1 = null;
                 Question q2 = null;
                 Question q3 = null;
@@ -442,15 +438,8 @@ public class CreateQuiz extends AppCompatActivity {
                 if(q8!=null)
                     listeQuestions.add(q8);
 
+                return listeQuestions;
 
             }
 
-            @Override
-            public void onFailure(Call<Integer> call, Throwable t) {
-
-            }
-        });
-
-        return listeQuestions;
     }
-}

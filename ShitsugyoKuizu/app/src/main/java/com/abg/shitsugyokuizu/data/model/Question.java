@@ -2,13 +2,13 @@ package com.abg.shitsugyokuizu.data.model;
 
 public class Question {
 
-    private int idQuestion;
+    private int id;
     private String intitule;
     private String reponse1, reponse2, reponse3, reponse4;
     private int nReponse;
 
     public Question(int idQuestion, String titleQues, String reponse1, String reponse2, String reponse3, String reponse4, int nReponse) {
-        this.idQuestion = idQuestion;
+        this.id = idQuestion;
         this.intitule = titleQues;
         this.reponse1 = reponse1;
         this.reponse2 = reponse2;
@@ -17,12 +17,12 @@ public class Question {
         this.nReponse = nReponse;
     }
 
-    public int getIdQuestion() {
-        return idQuestion;
+    public int getId() {
+        return id;
     }
 
-    public void setIdQuestion(int idQuestion) {
-        this.idQuestion = idQuestion;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitleQues() {

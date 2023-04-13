@@ -87,7 +87,7 @@ public class MyQuiz extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Questionnaire>> call, Response<List<Questionnaire>> response) {
                 List<Questionnaire> dernierQuestCree = response.body();
-
+                System.out.println(response.body());
                 if(!response.body().isEmpty() && response.body()!=null) {
                     try {
                         quizPlusJoue1.setText(dernierQuestCree.get(0).getIntitule());
@@ -127,6 +127,7 @@ public class MyQuiz extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Questionnaire>> call, Response<List<Questionnaire>> response) {
                 List<Questionnaire> dernierQuestCree = response.body();
+                System.out.println(response.body());
                 if(!response.body().isEmpty() && response.body()!=null) {
                     try {
                         dernierQuizCree1.setText(dernierQuestCree.get(0).getIntitule());
