@@ -194,7 +194,7 @@ public class QuizActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<List<Question>> call, Throwable t) {
-                    Toast.makeText(QuizActivity.this, "babaje", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity.this, "Erreur lors de l'insertion de questionnaireJoue", Toast.LENGTH_SHORT).show();
                 }
             });
         }
