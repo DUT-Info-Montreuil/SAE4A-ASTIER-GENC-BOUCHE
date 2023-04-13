@@ -37,4 +37,7 @@ public interface API {
     @GET("getMaxid.php")
     Call<Integer> getMaxId();
 
+    @GET("getQuestJoueur.php")
+    Call<List<Questionnaire>> getQuestJoueur();
+
 }
