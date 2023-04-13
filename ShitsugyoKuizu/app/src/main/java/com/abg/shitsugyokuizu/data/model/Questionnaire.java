@@ -8,6 +8,8 @@ public class Questionnaire {
     private String intitule;
     private String dateDeCreation;
 
+    private  int score;
+
     public Questionnaire() {
     }
 
@@ -44,6 +46,14 @@ public class Questionnaire {
 
     public String getDateDeCreation() {
         return dateDeCreation;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public void setDateDeCreation(String dateDeCreation) {
