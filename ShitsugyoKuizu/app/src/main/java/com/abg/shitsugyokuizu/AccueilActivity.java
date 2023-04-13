@@ -88,15 +88,28 @@ public class AccueilActivity extends AppCompatActivity {
                 List<QuestionnaireJoue> questionnaires = response.body();
                 try {
                     lastQuiz1.setText(questionnaires.get(0).getIntitule());
+                }catch (Exception e) {
+                    lastQuiz1.setVisibility(View.GONE);
+                }
+
+                try {
                     lastQuiz2.setText(questionnaires.get(1).getIntitule());
+                }catch (Exception e) {
+                    lastQuiz2.setVisibility(View.GONE);
+                }
+
+                try {
                     lastQuiz3.setText(questionnaires.get(2).getIntitule());
+                }catch (Exception e) {
+                    lastQuiz3.setVisibility(View.GONE);
+                }
+
+                try {
                     lastQuiz4.setText(questionnaires.get(3).getIntitule());
                 }catch (Exception e) {
-                    lastQuiz1.setVisibility(View.INVISIBLE);
-                    lastQuiz2.setVisibility(View.INVISIBLE);
-                    lastQuiz3.setVisibility(View.INVISIBLE);
-                    lastQuiz4.setVisibility(View.INVISIBLE);
+                    lastQuiz4.setVisibility(View.GONE);
                 }
+
                 lastQuiz1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -105,6 +118,7 @@ public class AccueilActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+
                 lastQuiz2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -146,10 +160,30 @@ public class AccueilActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<QuestionnaireJoue>> call, Response<List<QuestionnaireJoue>> response) {
                 List<QuestionnaireJoue> questionnairesDuMois = response.body();
-                monthQuiz1.setText(questionnairesDuMois.get(0).getIntitule());
-                monthQuiz2.setText(questionnairesDuMois.get(1).getIntitule());
-                monthQuiz3.setText(questionnairesDuMois.get(2).getIntitule());
-                monthQuiz4.setText(questionnairesDuMois.get(3).getIntitule());
+
+                try {
+                    monthQuiz1.setText(questionnairesDuMois.get(0).getIntitule());
+                } catch (Exception e) {
+                    monthQuiz1.setVisibility(View.GONE);
+                }
+
+                try {
+                    monthQuiz2.setText(questionnairesDuMois.get(1).getIntitule());
+                } catch (Exception e) {
+                    monthQuiz2.setVisibility(View.GONE);
+                }
+
+                try {
+                    monthQuiz3.setText(questionnairesDuMois.get(2).getIntitule());
+                } catch (Exception e) {
+                    monthQuiz3.setVisibility(View.GONE);
+                }
+
+                try {
+                    monthQuiz4.setText(questionnairesDuMois.get(3).getIntitule());
+                } catch (Exception e) {
+                    monthQuiz4.setVisibility(View.GONE);
+                }
 
                 monthQuiz1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -193,10 +227,5 @@ public class AccueilActivity extends AppCompatActivity {
                 Toast.makeText(AccueilActivity.this, "Bruh", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
-
     }
 }

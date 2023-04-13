@@ -9,8 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IInterface;
-import android.text.style.TtsSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -67,8 +65,10 @@ public class QuizActivity extends AppCompatActivity {
         }
         Intent i = getIntent();
         int id = i.getIntExtra("id", -1);
-        if (id!=-1){
+        System.out.println(id);
+        if (id!=-1) {
             Toast.makeText(this, id+"", Toast.LENGTH_SHORT).show();
+
             API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
             Call <List<Question>> call = api.getQuestionDuQuesionnaire(id);
             call.enqueue(new Callback<List<Question>>() {
