@@ -30,4 +30,11 @@ public interface API {
 
     @GET("getAllQuiz.php")
     Call<List<Questionnaire>> getAllQuestionnaires();
+
+    @GET("getIdQuestionnaireDuMois.php")
+    Call<List<Question>> getQuestionDuQuesionnaire(@Query("idQuestionnaire")int id);
+
+    @GET("getMaxid.php")
+    Call<Integer> getMaxId();
+
 }

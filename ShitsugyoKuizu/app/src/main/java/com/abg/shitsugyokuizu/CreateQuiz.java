@@ -16,6 +16,7 @@ import com.abg.shitsugyokuizu.data.API;
 import com.abg.shitsugyokuizu.data.RetrofitClientInstance;
 import com.abg.shitsugyokuizu.data.model.Question;
 import com.abg.shitsugyokuizu.data.model.Questionnaire;
+import com.abg.shitsugyokuizu.data.model.QuestionnaireJoue;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,6 +25,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -198,7 +200,6 @@ public class CreateQuiz extends AppCompatActivity {
                                 // storing our values in key and value pair.
                                 Map<String, String> params = new HashMap<String, String>();
 
-                                params.put("titreQuestionnaire", q.getTitreQuestionnaire());
                                 params.put("intituleQuestion", q.getTitleQues());
                                 params.put("idUser", String.valueOf(userId));
                                 params.put("reponse1", q.getReponse1());
@@ -374,64 +375,81 @@ public class CreateQuiz extends AppCompatActivity {
     public ArrayList<Question> createQuestionnaire() {
         saveQuestion(nQuestion);
 
-        Question q1 = null;
-        Question q2 = null;
-        Question q3 = null;
-        Question q4 = null;
-        Question q5 = null;
-        Question q6 = null;
-        Question q7 = null;
-        Question q8 = null;
-        if(questionnaireText.getText().toString()!=null) {
-            if (question1 != null && reponse11 != null && reponse12 != null && reponse13 != null && reponse14 != null && bonneReponse1!=null)
-                q1 = new Question(questionnaireText.getText().toString(), question1, reponse11, reponse12, reponse13, reponse14, Integer.valueOf(bonneReponse1));
 
-            if (question2 != null && reponse11 != null && reponse12 != null && reponse13 != null && reponse14 != null && bonneReponse2!=null)
-                q2 = new Question(questionnaireText.getText().toString(), question2, reponse21, reponse22, reponse23, reponse24, Integer.valueOf(bonneReponse2));
-
-            if (question3 != null && reponse31 != null && reponse32 != null && reponse33 != null && reponse34 != null && bonneReponse3!=null)
-                q3 = new Question(questionnaireText.getText().toString(), question3, reponse31, reponse32, reponse33, reponse34, Integer.parseInt(bonneReponse3));
-
-            if (question4 != null && reponse41 != null && reponse42 != null && reponse43 != null && reponse44 != null && bonneReponse4!=null)
-                q4 = new Question(questionnaireText.getText().toString(), question4, reponse41, reponse42, reponse43, reponse44, Integer.parseInt(bonneReponse4));
-
-            if (question5 != null && reponse51 != null && reponse52 != null && reponse53 != null && reponse54 != null && bonneReponse5!=null)
-                q5 = new Question(questionnaireText.getText().toString(), question5, reponse51, reponse52, reponse53, reponse54, Integer.parseInt(bonneReponse5));
-
-            if (question6 != null && reponse61 != null && reponse62 != null && reponse63 != null && reponse64 != null && bonneReponse6!=null)
-                q6 = new Question(questionnaireText.getText().toString(), question6, reponse61, reponse62, reponse63, reponse64, Integer.parseInt(bonneReponse6));
-
-            if (question7 != null && reponse71 != null && reponse72 != null && reponse73 != null && reponse74 != null && bonneReponse7!=null)
-                q7 = new Question(questionnaireText.getText().toString(), question7, reponse71, reponse72, reponse73, reponse74, Integer.parseInt(bonneReponse7));
-
-            if (question8 != null && reponse81 != null && reponse82 != null && reponse83 != null && reponse84 != null && bonneReponse8!=null)
-                q8 = new Question(questionnaireText.getText().toString(), question8, reponse81, reponse82, reponse83, reponse84, Integer.parseInt(bonneReponse8));
-        }
+        API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
+        Call<Integer> getMaxId = api.getMaxId();
         ArrayList<Question> listeQuestions = new ArrayList<Question>();
+        getMaxId.enqueue(new Callback<Integer>() {
+            @Override
+            public void onResponse(Call<Integer> call, retrofit2.Response<Integer> response) {
+                Question q1 = null;
+                Question q2 = null;
+                Question q3 = null;
+                Question q4 = null;
+                Question q5 = null;
+                Question q6 = null;
+                Question q7 = null;
+                Question q8 = null;
 
-        if(q1!=null)
-            listeQuestions.add(q1);
+                if(questionnaireText.getText().toString()!=null) {
+                    if (question1 != null && reponse11 != null && reponse12 != null && reponse13 != null && reponse14 != null && bonneReponse1!=null)
+                        q1 = new Question(1, question1, reponse11, reponse12, reponse13, reponse14, Integer.valueOf(bonneReponse1));
 
-        if(q2!=null)
-            listeQuestions.add(q2);
+                    if (question2 != null && reponse11 != null && reponse12 != null && reponse13 != null && reponse14 != null && bonneReponse2!=null)
+                        q2 = new Question(2, question2, reponse21, reponse22, reponse23, reponse24, Integer.valueOf(bonneReponse2));
 
-        if(q3!=null)
-            listeQuestions.add(q3);
+                    if (question3 != null && reponse31 != null && reponse32 != null && reponse33 != null && reponse34 != null && bonneReponse3!=null)
+                        q3 = new Question(3, question3, reponse31, reponse32, reponse33, reponse34, Integer.parseInt(bonneReponse3));
 
-        if(q4!=null)
-            listeQuestions.add(q4);
+                    if (question4 != null && reponse41 != null && reponse42 != null && reponse43 != null && reponse44 != null && bonneReponse4!=null)
+                        q4 = new Question(4, question4, reponse41, reponse42, reponse43, reponse44, Integer.parseInt(bonneReponse4));
 
-        if(q5!=null)
-            listeQuestions.add(q5);
+                    if (question5 != null && reponse51 != null && reponse52 != null && reponse53 != null && reponse54 != null && bonneReponse5!=null)
+                        q5 = new Question(5, question5, reponse51, reponse52, reponse53, reponse54, Integer.parseInt(bonneReponse5));
 
-        if(q6!=null)
-            listeQuestions.add(q6);
+                    if (question6 != null && reponse61 != null && reponse62 != null && reponse63 != null && reponse64 != null && bonneReponse6!=null)
+                        q6 = new Question(6, question6, reponse61, reponse62, reponse63, reponse64, Integer.parseInt(bonneReponse6));
 
-        if(q7!=null)
-            listeQuestions.add(q7);
+                    if (question7 != null && reponse71 != null && reponse72 != null && reponse73 != null && reponse74 != null && bonneReponse7!=null)
+                        q7 = new Question(7, question7, reponse71, reponse72, reponse73, reponse74, Integer.parseInt(bonneReponse7));
 
-        if(q8!=null)
-            listeQuestions.add(q8);
+                    if (question8 != null && reponse81 != null && reponse82 != null && reponse83 != null && reponse84 != null && bonneReponse8!=null)
+                        q8 = new Question(8, question8, reponse81, reponse82, reponse83, reponse84, Integer.parseInt(bonneReponse8));
+                }
+
+
+                if(q1!=null)
+                    listeQuestions.add(q1);
+
+                if(q2!=null)
+                    listeQuestions.add(q2);
+
+                if(q3!=null)
+                    listeQuestions.add(q3);
+
+                if(q4!=null)
+                    listeQuestions.add(q4);
+
+                if(q5!=null)
+                    listeQuestions.add(q5);
+
+                if(q6!=null)
+                    listeQuestions.add(q6);
+
+                if(q7!=null)
+                    listeQuestions.add(q7);
+
+                if(q8!=null)
+                    listeQuestions.add(q8);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<Integer> call, Throwable t) {
+
+            }
+        });
 
         return listeQuestions;
     }

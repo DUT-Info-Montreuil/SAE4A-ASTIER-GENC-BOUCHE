@@ -2,14 +2,14 @@ package com.abg.shitsugyokuizu.data.model;
 
 public class Question {
 
-    private String titreQuestionnaire;
-    private String titleQues;
+    private int idQuestion;
+    private String intitule;
     private String reponse1, reponse2, reponse3, reponse4;
     private int nReponse;
 
-    public Question(String questionnaire, String titleQues, String reponse1, String reponse2, String reponse3, String reponse4, int nReponse) {
-        this.titreQuestionnaire = questionnaire;
-        this.titleQues = titleQues;
+    public Question(int idQuestion, String titleQues, String reponse1, String reponse2, String reponse3, String reponse4, int nReponse) {
+        this.idQuestion = idQuestion;
+        this.intitule = titleQues;
         this.reponse1 = reponse1;
         this.reponse2 = reponse2;
         this.reponse3 = reponse3;
@@ -17,12 +17,20 @@ public class Question {
         this.nReponse = nReponse;
     }
 
+    public int getIdQuestion() {
+        return idQuestion;
+    }
+
+    public void setIdQuestion(int idQuestion) {
+        this.idQuestion = idQuestion;
+    }
+
     public String getTitleQues() {
-        return titleQues;
+        return intitule;
     }
 
     public void setTitleQues(String titleQues) {
-        this.titleQues = titleQues;
+        this.intitule = titleQues;
     }
 
     public String getReponse1() {
@@ -66,11 +74,5 @@ public class Question {
     }
 
 
-    public String getTitreQuestionnaire() {
-        return titreQuestionnaire;
-    }
 
-    public void setTitreQuestionnaire(String questionnaire) {
-        this.titreQuestionnaire = questionnaire;
-    }
 }

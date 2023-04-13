@@ -9,10 +9,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IInterface;
+import android.text.style.TtsSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.abg.shitsugyokuizu.data.API;
+import com.abg.shitsugyokuizu.data.RetrofitClientInstance;
+import com.abg.shitsugyokuizu.data.model.Question;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -48,15 +60,42 @@ public class QuizActivity extends AppCompatActivity {
         mAnswerButton3 = findViewById(R.id.button3);
         mAnswerButton4 = findViewById(R.id.button4);
 
-        mAnswerButton1.setOnClickListener((View.OnClickListener) this);
-        mAnswerButton2.setOnClickListener((View.OnClickListener) this);
-        mAnswerButton3.setOnClickListener((View.OnClickListener) this);
-        mAnswerButton4.setOnClickListener((View.OnClickListener) this);
-
         if (savedInstanceState != null) {
             mScore = savedInstanceState.getInt(BUNDLE_STATE_SCORE);
             mRemainingQuestionCount = savedInstanceState.getInt(BUNDLE_STATE_QUESTION_COUNT);
             //questionnaire = SELECT * IN questionnaire where id = selectedID;
+        }
+        Intent i = getIntent();
+        int id = i.getIntExtra("id", -1);
+        if (id!=-1){
+            Toast.makeText(this, id+"", Toast.LENGTH_SHORT).show();
+            API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
+            Call <List<Question>> call = api.getQuestionDuQuesionnaire(id);
+            call.enqueue(new Callback<List<Question>>() {
+                @Override
+                public void onResponse(Call<List<Question>> call, Response<List<Question>> response) {
+                    /*
+                    if (response.body().contains("idQuestionnaire")){
+
+                        List<Question> questions = response.body();
+                        Toast.makeText(QuizActivity.this,questions.get(0).getTitleQues()+"" , Toast.LENGTH_SHORT).show();
+                        chargementQuestion(questions.get(0));
+
+
+                    }
+                    else {
+                        Toast.makeText(QuizActivity.this, "koikoubé", Toast.LENGTH_SHORT).show();
+                    }
+
+                     */
+                    System.out.println(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Question>> call, Throwable t) {
+                    Toast.makeText(QuizActivity.this, "babaje", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         //displayQuestion(questionnaire);
@@ -140,6 +179,13 @@ public class QuizActivity extends AppCompatActivity {
                 })
                 .create()
                 .show();
+    }
+    public void chargementQuestion(Question question){
+        mTextViewQuestion.setText(question.getTitleQues());
+        mAnswerButton1.setText(question.getReponse1());
+        mAnswerButton2.setText(question.getReponse2());
+        mAnswerButton3.setText(question.getReponse3());
+        mAnswerButton4.setText(question.getReponse4());
     }
 
 

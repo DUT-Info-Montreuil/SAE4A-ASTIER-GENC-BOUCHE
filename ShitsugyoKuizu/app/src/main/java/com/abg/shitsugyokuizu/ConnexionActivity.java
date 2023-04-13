@@ -53,7 +53,7 @@ public class ConnexionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String url = "http://192.168.56.1/connexion_app.php?pseudo=" + pseudo.getText().toString() + "&mdp=" + mdp.getText().toString();
+                String url = "http://10.0.2.2/connexion_app.php?pseudo=" + pseudo.getText().toString() + "&mdp=" + mdp.getText().toString();
                 StringRequest request = new StringRequest(Request.Method.GET, url,
                         new Response.Listener<String>() {
                     @Override

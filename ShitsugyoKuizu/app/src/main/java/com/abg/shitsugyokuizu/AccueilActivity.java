@@ -97,8 +97,41 @@ public class AccueilActivity extends AppCompatActivity {
                     lastQuiz3.setVisibility(View.INVISIBLE);
                     lastQuiz4.setVisibility(View.INVISIBLE);
                 }
+                lastQuiz1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnaires.get(0).getIdQuestionnaire());
+                        startActivity(intent);
+                    }
+                });
+                lastQuiz2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnaires.get(1).getIdQuestionnaire());
+                        startActivity(intent);
+                    }
+                });
+                lastQuiz3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnaires.get(2).getIdQuestionnaire());
+                        startActivity(intent);
+                    }
+                });
+                lastQuiz4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnaires.get(3).getIdQuestionnaire());
+                        startActivity(intent);
+                    }
+                });
 
             }
+
 
             @Override
             public void onFailure(Call<List<QuestionnaireJoue>> call, Throwable t) {
@@ -117,7 +150,42 @@ public class AccueilActivity extends AppCompatActivity {
                 monthQuiz2.setText(questionnairesDuMois.get(1).getIntitule());
                 monthQuiz3.setText(questionnairesDuMois.get(2).getIntitule());
                 monthQuiz4.setText(questionnairesDuMois.get(3).getIntitule());
+
+                monthQuiz1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnairesDuMois.get(0).getIdQuestionnaire());
+                        startActivity(intent);
+                    }
+                });
+
+                monthQuiz2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnairesDuMois.get(1).getIdQuestionnaire());
+                        startActivity(intent);
+                    }
+                });
+                monthQuiz3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnairesDuMois.get(2).getIdQuestionnaire());
+                        startActivity(intent);
+                    }
+                });
+                monthQuiz4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccueilActivity.this, QuizActivity.class);
+                        intent.putExtra("id", questionnairesDuMois.get(3).getIdQuestionnaire());
+                        startActivity(intent);
+                    }
+                });
             }
+
 
 
             @Override
@@ -125,6 +193,7 @@ public class AccueilActivity extends AppCompatActivity {
                 Toast.makeText(AccueilActivity.this, "Bruh", Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
 
