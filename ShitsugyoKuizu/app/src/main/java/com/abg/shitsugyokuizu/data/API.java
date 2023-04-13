@@ -19,6 +19,12 @@ public interface API {
     @GET("getQuestionnaireDuMois.php")
     Call<List<QuestionnaireJoue>> getQuestionnaireDuMois();
 
+    @GET("dernier_quiz_cree.php")
+    Call<List<Questionnaire>> getDernierQuestionnaireCree(@Query("idUser")int id);
+
+    @GET("vos_quiz_plus_joues.php")
+    Call<List<Questionnaire>> getVosQuizPlusJoues(@Query("idUser")int id);
+
     @GET("getUser.php")
     Call<Utilisateur> getUtilisateur(@Query("nom") String nom);
 
@@ -42,5 +48,8 @@ public interface API {
                                   @Query("reponse3") String reponse3,
                                   @Query("reponse4") String reponse4,
                                   @Query("bonneReponse") int iBonneReponse);
+
+    @GET("getQuestJoueur.php")
+    Call<List<Questionnaire>> getQuestJoueur();
 
 }
