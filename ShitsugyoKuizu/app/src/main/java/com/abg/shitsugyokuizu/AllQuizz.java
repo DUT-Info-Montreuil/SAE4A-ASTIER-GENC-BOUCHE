@@ -74,21 +74,21 @@ public class AllQuizz extends AppCompatActivity {
         recyclerViewMenu.setAdapter(menuAdapter);
         recyclerViewMenu.setLayoutManager(layoutManager);
 
-        searchBar = (SearchView) findViewById(R.id.quiz_searchbar);
-        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-
-                menuAdapter.filter(s);
-                System.out.println(menuAdapter.getItemCount());
-                return false;
-            }
-        });
+//        searchBar = (SearchView) findViewById(R.id.quiz_searchbar);
+//        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//
+//                menuAdapter.filter(s);
+//                System.out.println(menuAdapter.getItemCount());
+//                return false;
+//            }
+//        });
 
     }
 

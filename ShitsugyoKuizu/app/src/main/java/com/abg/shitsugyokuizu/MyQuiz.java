@@ -87,11 +87,31 @@ public class MyQuiz extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Questionnaire>> call, Response<List<Questionnaire>> response) {
                 List<Questionnaire> dernierQuestCree = response.body();
+
                 if(!response.body().isEmpty() && response.body()!=null) {
-                    quizPlusJoue1.setText(dernierQuestCree.get(0).getIntitule());
-                    quizPlusJoue2.setText(dernierQuestCree.get(1).getIntitule());
-                    quizPlusJoue3.setText(dernierQuestCree.get(2).getIntitule());
-                    quizPlusJoue4.setText(dernierQuestCree.get(3).getIntitule());
+                    try {
+                        quizPlusJoue1.setText(dernierQuestCree.get(0).getIntitule());
+                    } catch(Exception e) {
+                        quizPlusJoue1.setVisibility(View.GONE);
+                    }
+
+                    try {
+                        quizPlusJoue2.setText(dernierQuestCree.get(0).getIntitule());
+                    } catch(Exception e) {
+                        quizPlusJoue2.setVisibility(View.GONE);
+                    }
+
+                    try {
+                        quizPlusJoue3.setText(dernierQuestCree.get(0).getIntitule());
+                    } catch(Exception e) {
+                        quizPlusJoue3.setVisibility(View.GONE);
+                    }
+
+                    try {
+                        quizPlusJoue4.setText(dernierQuestCree.get(0).getIntitule());
+                    } catch(Exception e) {
+                        quizPlusJoue4.setVisibility(View.GONE);
+                    }
                 }
             }
 
@@ -108,10 +128,28 @@ public class MyQuiz extends AppCompatActivity {
             public void onResponse(Call<List<Questionnaire>> call, Response<List<Questionnaire>> response) {
                 List<Questionnaire> dernierQuestCree = response.body();
                 if(!response.body().isEmpty() && response.body()!=null) {
-                    dernierQuizCree1.setText(dernierQuestCree.get(0).getIntitule());
-                    dernierQuizCree2.setText(dernierQuestCree.get(1).getIntitule());
-                    dernierQuizCree3.setText(dernierQuestCree.get(2).getIntitule());
-                    dernierQuizCree4.setText(dernierQuestCree.get(3).getIntitule());
+                    try {
+                        dernierQuizCree1.setText(dernierQuestCree.get(0).getIntitule());
+                    } catch (Exception e) {
+                        dernierQuizCree1.setVisibility(View.GONE);
+                    }
+                    try {
+                        dernierQuizCree2.setText(dernierQuestCree.get(0).getIntitule());
+                    } catch (Exception e) {
+                        dernierQuizCree2.setVisibility(View.GONE);
+                    }
+
+                    try {
+                        dernierQuizCree3.setText(dernierQuestCree.get(0).getIntitule());
+                    } catch (Exception e) {
+                        dernierQuizCree3.setVisibility(View.GONE);
+                    }
+
+                    try {
+                        dernierQuizCree4.setText(dernierQuestCree.get(0).getIntitule());
+                    } catch (Exception e) {
+                        dernierQuizCree4.setVisibility(View.GONE);
+                    }
                 }
             }
 

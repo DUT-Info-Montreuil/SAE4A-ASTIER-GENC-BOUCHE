@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -171,16 +172,12 @@ public class CreateQuiz extends AppCompatActivity {
                 ArrayList<Question> questions = createQuestionnaire();
 
                 for(Question q : questions) {
-                    String url = "http://192.168.56.1/insert_question.php?titreQuestionnaire="
-                            + q.getTitreQuestionnaire() + "&intituleQuestion=" + q.getTitleQues()
-                            + "&reponse1=" + q.getReponse1() + "&reponse2=" + q.getReponse2()
-                            + "&reponse3=" + q.getReponse3() + "&reponse4=" + q.getReponse4() +
-                            "&bonneReponse=" +q.getnReponse() + "&idUser=" + userId;
-                    StringRequest request = new StringRequest(Request.Method.GET, url, new com.android.volley.Response.Listener<String>() {
+                    String url = "http://192.168.56.1/insert_question.php";
+                    StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             System.out.println(response);
-                            if(response.contains("done")) {
+                            if (response.contains("done")) {
                                 Toast.makeText(CreateQuiz.this, "Quiz créer avec succès", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(CreateQuiz.this, MyQuiz.class);
                                 startActivity(intent);
@@ -188,19 +185,39 @@ public class CreateQuiz extends AppCompatActivity {
                             }
                         }
 
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            System.out.println("Erreur création quiz");
-                        }
-                    });
+                    }, new com.android.volley.Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // method to handle errors.
+                                Toast.makeText(CreateQuiz.this, "Fail to get response = " + error, Toast.LENGTH_SHORT).show();
+                            }
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() {
+                                // below line we are creating a map for
+                                // storing our values in key and value pair.
+                                Map<String, String> params = new HashMap<String, String>();
+
+                                params.put("titreQuestionnaire", q.getTitreQuestionnaire());
+                                params.put("intituleQuestion", q.getTitleQues());
+                                params.put("idUser", String.valueOf(userId));
+                                params.put("reponse1", q.getReponse1());
+                                params.put("reponse2", q.getReponse2());
+                                params.put("reponse3", q.getReponse3());
+                                params.put("reponse4", q.getReponse4());
+                                params.put("bonneReponse", String.valueOf(q.getnReponse()));
+
+                                // at last we are
+                                // returning our params.
+                                return params;
+                            }
+                        };
 
                     queue.add(request);
-                }
-            }
-        });
-
-    }
+                    }
+                };
+            });
+        }
 
     public void saveQuestion(int nQuestion) {
         switch (nQuestion) {
