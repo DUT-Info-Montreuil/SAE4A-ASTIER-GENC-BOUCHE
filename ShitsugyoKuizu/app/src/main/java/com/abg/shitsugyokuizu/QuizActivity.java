@@ -44,6 +44,8 @@ public class QuizActivity extends AppCompatActivity {
     private int mScore;
     private int mRemainingQuestionCount;
     private int selectedID;
+    public static int score = 0;
+    public static int curseur = 0;
 
     //private Questionnaire questionnaire;
 
@@ -67,18 +69,96 @@ public class QuizActivity extends AppCompatActivity {
         int id = i.getIntExtra("id", -1);
         System.out.println(id);
         if (id!=-1) {
-            API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
-            Call<List<Question>> getQuestions = api.getQuestionDuQuesionnaire(id);
+            Toast.makeText(this, id+"", Toast.LENGTH_SHORT).show();
 
-            getQuestions.enqueue(new Callback<List<Question>>() {
+            API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
+            Call <List<Question>> call = api.getQuestionDuQuesionnaire(id);
+            call.enqueue(new Callback<List<Question>>() {
                 @Override
                 public void onResponse(Call<List<Question>> call, Response<List<Question>> response) {
-                    System.out.println("Response " + response);
+
+                    if (response.isSuccessful()){
+
+                        List<Question> questions = response.body();
+                        if (curseur < questions.size() ){
+                            chargementQuestion(questions.get(curseur));
+                             Toast.makeText(QuizActivity.this, questions.size()+"", Toast.LENGTH_SHORT).show();
+
+                            mAnswerButton1.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                                    Toast.makeText(QuizActivity.this, id+"", Toast.LENGTH_SHORT).show();
+                                    if (questions.get(curseur).getnReponse() == 1){
+                                        Toast.makeText(QuizActivity.this, id+"", Toast.LENGTH_SHORT).show();
+                                        score+=1;
+                                    }
+                                    intent.putExtra("id",id);
+                                    curseur +=1;
+                                    startActivity(intent);
+
+                                }
+                            });
+                            mAnswerButton2.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                                    Toast.makeText(QuizActivity.this, id+"", Toast.LENGTH_SHORT).show();
+                                    if (questions.get(curseur).getnReponse() == 2){
+                                        Toast.makeText(QuizActivity.this, id+"", Toast.LENGTH_SHORT).show();
+                                        score+=1;
+                                    }
+                                    intent.putExtra("id",id);
+                                    curseur +=1;
+                                    startActivity(intent);
+                                }
+                            });
+                            mAnswerButton3.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                                    Toast.makeText(QuizActivity.this, id+"", Toast.LENGTH_SHORT).show();
+                                    if (questions.get(curseur).getnReponse() == 3){
+                                        Toast.makeText(QuizActivity.this, id+"", Toast.LENGTH_SHORT).show();
+                                        score+=1;
+                                    }
+                                    intent.putExtra("id",id);
+                                    curseur +=1;
+                                    startActivity(intent);
+                                }
+                            });
+                            mAnswerButton4.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
+                                    Toast.makeText(QuizActivity.this, id+"", Toast.LENGTH_SHORT).show();
+                                    if (questions.get(curseur).getnReponse() == 4){
+                                        Toast.makeText(QuizActivity.this, id+"", Toast.LENGTH_SHORT).show();
+                                        score+=1;
+                                    }
+                                    intent.putExtra("id",id);
+                                    curseur +=1;
+                                    startActivity(intent);
+                                }
+                            });
+
+                        }
+                        else {
+                            Intent intent = new Intent(QuizActivity.this,AccueilActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+
+                    }
+
+
+                    System.out.println(response.body());
                 }
 
                 @Override
                 public void onFailure(Call<List<Question>> call, Throwable t) {
-
+                    Toast.makeText(QuizActivity.this, "babaje", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -166,7 +246,7 @@ public class QuizActivity extends AppCompatActivity {
                 .show();
     }
     public void chargementQuestion(Question question){
-        mTextViewQuestion.setText(question.getTitleQues());
+        mTextViewQuestion.setText(question.getIntitule());
         mAnswerButton1.setText(question.getReponse1());
         mAnswerButton2.setText(question.getReponse2());
         mAnswerButton3.setText(question.getReponse3());

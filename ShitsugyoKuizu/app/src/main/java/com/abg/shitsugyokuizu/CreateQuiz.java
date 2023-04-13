@@ -201,7 +201,7 @@ public class CreateQuiz extends AppCompatActivity {
                                 Map<String, String> params = new HashMap<String, String>();
 
                                 params.put("titreQuestionnaire", questionnaireText.getText().toString());
-                                params.put("intituleQuestion", q.getTitleQues());
+                                params.put("intituleQuestion", q.getIntitule());
                                 params.put("idUser", String.valueOf(userId));
                                 params.put("reponse1", q.getReponse1());
                                 params.put("reponse2", q.getReponse2());

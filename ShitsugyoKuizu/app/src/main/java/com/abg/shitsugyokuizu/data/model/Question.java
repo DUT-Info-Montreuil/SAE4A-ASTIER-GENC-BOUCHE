@@ -7,9 +7,9 @@ public class Question {
     private String reponse1, reponse2, reponse3, reponse4;
     private int nReponse;
 
-    public Question(int idQuestion, String titleQues, String reponse1, String reponse2, String reponse3, String reponse4, int nReponse) {
+    public Question(int idQuestion, String intitule, String reponse1, String reponse2, String reponse3, String reponse4, int nReponse) {
         this.id = idQuestion;
-        this.intitule = titleQues;
+        this.intitule = intitule;
         this.reponse1 = reponse1;
         this.reponse2 = reponse2;
         this.reponse3 = reponse3;
@@ -25,11 +25,11 @@ public class Question {
         this.id = id;
     }
 
-    public String getTitleQues() {
+    public String getIntitule() {
         return intitule;
     }
 
-    public void setTitleQues(String titleQues) {
+    public void setIntitule(String titleQues) {
         this.intitule = titleQues;
     }
 
