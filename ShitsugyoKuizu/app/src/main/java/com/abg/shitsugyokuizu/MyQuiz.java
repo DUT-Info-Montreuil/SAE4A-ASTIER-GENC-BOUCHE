@@ -76,6 +76,15 @@ public class MyQuiz extends AppCompatActivity {
             }
         });
 
+        trophyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyQuiz.this, TrophyActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         SharedPreferences spref = getSharedPreferences(SHARED_PREF_USER_ID, MODE_PRIVATE);
         Map<String, Integer> s = (Map<String, Integer>) spref.getAll();
 
@@ -159,13 +168,5 @@ public class MyQuiz extends AppCompatActivity {
                 Toast.makeText(MyQuiz.this, "Bruh", Toast.LENGTH_SHORT).show();
             }
         });
-
-//        trophyButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MyQuiz.this, trophies.class);
-//                startActivity(intent);
-//            }
-//        });
     }
 }

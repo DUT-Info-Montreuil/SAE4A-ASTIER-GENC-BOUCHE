@@ -5,8 +5,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -17,12 +19,23 @@ import android.widget.Toast;
 import com.abg.shitsugyokuizu.data.API;
 import com.abg.shitsugyokuizu.data.RetrofitClientInstance;
 import com.abg.shitsugyokuizu.data.model.Question;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.POST;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -61,6 +74,7 @@ public class QuizActivity extends AppCompatActivity {
         if (id!=-1) {
             Toast.makeText(this, id+"", Toast.LENGTH_SHORT).show();
 
+            int idQuest = id;
             API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
             Call <List<Question>> call = api.getQuestionDuQuesionnaire(id);
             call.enqueue(new Callback<List<Question>>() {
@@ -72,7 +86,7 @@ public class QuizActivity extends AppCompatActivity {
                         List<Question> questions = response.body();
                         if (curseur < questions.size() ){
                             chargementQuestion(questions.get(curseur));
-                             Toast.makeText(QuizActivity.this, questions.size()+"", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(QuizActivity.this, questions.size()+"", Toast.LENGTH_SHORT).show();
 
                             mAnswerButton1.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -134,15 +148,47 @@ public class QuizActivity extends AppCompatActivity {
 
                         }
                         else {
-                            Intent intent = new Intent(QuizActivity.this,AccueilActivity.class);
-                            startActivity(intent);
-                            finish();
+
+                            RequestQueue queue = Volley.newRequestQueue(QuizActivity.this);
+
+                            String url = "http://192.168.56.1/insert_questionnaireJoue.php";
+                            StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    // on below line we are displaying a success toast message.
+                                    Toast.makeText(QuizActivity.this, "Data added to API", Toast.LENGTH_SHORT).show();
+
+                                    Intent intent = new Intent(QuizActivity.this,AccueilActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }, new com.android.volley.Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    // method to handle errors.
+                                    Toast.makeText(QuizActivity.this, "Fail to get response = " + error, Toast.LENGTH_SHORT).show();
+                                }
+                            }) {
+                                @Override
+                                protected Map<String, String> getParams() {
+                                    // below line we are creating a map for
+                                    // storing our values in key and value pair.
+                                    Map<String, String> params = new HashMap<String, String>();
+
+                                    SharedPreferences spref = getSharedPreferences("SHARED_PREF_USER_ID", Context.MODE_PRIVATE);
+                                    int currentId = spref.getInt("id", 0);
+
+                                    params.put("idUtilisateur", String.valueOf(currentId));
+                                    params.put("idQuestionnaire", String.valueOf(idQuest));
+
+                                    // at last we are
+                                    // returning our params.
+                                    return params;
+                                }
+                            };
+                            queue.add(request);
                         }
-
-
                     }
-
-
                     System.out.println(response.body());
                 }
 

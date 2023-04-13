@@ -3,7 +3,7 @@ package com.abg.shitsugyokuizu.data.model;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,7 +31,7 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Questionnaire item = mQuestionnaires.get(position);
-        holder.textView.setText(item.getIntitule());
+        holder.button.setText(item.getIntitule());
     }
 
     @Override
@@ -40,30 +40,31 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
+        public Button button;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.textview_menu_item);
+            button = itemView.findViewById(R.id.textview_menu_item);
         }
     }
 
-    public boolean filter(String text) {
-        boolean texteVide = false;
-        mQuestionnaires.clear();
-        if(text.equals("")){
-            this.mQuestionnaires.addAll(this.mQuestionnairesFull);
-            texteVide = true;
-        } else{
-            text = text.toLowerCase();
-            for(Questionnaire item: mQuestionnairesFull){
-                if(item.getIntitule().toLowerCase().contains(text)){
-                    mQuestionnaires.add(item);
-                }
-            }
-        }
-        notifyDataSetChanged();
-        return texteVide;
-    }
+    //Permettait de rechercher dans la liste de quiz, mais ne marchait pas
+//    public boolean filter(String text) {
+//        boolean texteVide = false;
+//        mQuestionnaires.clear();
+//        if(text.equals("")){
+//            this.mQuestionnaires.addAll(this.mQuestionnairesFull);
+//            texteVide = true;
+//        } else{
+//            text = text.toLowerCase();
+//            for(Questionnaire item: mQuestionnairesFull){
+//                if(item.getIntitule().toLowerCase().contains(text)){
+//                    mQuestionnaires.add(item);
+//                }
+//            }
+//        }
+//        notifyDataSetChanged();
+//        return texteVide;
+//    }
 
 }

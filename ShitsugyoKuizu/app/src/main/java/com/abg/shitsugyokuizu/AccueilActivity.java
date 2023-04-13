@@ -56,6 +56,7 @@ public class AccueilActivity extends AppCompatActivity {
 
         plusButton = (ImageButton) findViewById(R.id.plusAccueil_button);
         interroButton = findViewById(R.id.interroAccueil_button);
+        trophyButton = findViewById(R.id.trophyAccueil_button);
 
         plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +71,15 @@ public class AccueilActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AccueilActivity.this, AllQuizz.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        trophyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccueilActivity.this, TrophyActivity.class);
                 startActivity(intent);
                 finish();
             }
