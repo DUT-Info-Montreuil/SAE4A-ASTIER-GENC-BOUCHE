@@ -67,33 +67,18 @@ public class QuizActivity extends AppCompatActivity {
         int id = i.getIntExtra("id", -1);
         System.out.println(id);
         if (id!=-1) {
-            Toast.makeText(this, id+"", Toast.LENGTH_SHORT).show();
-
             API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
-            Call <List<Question>> call = api.getQuestionDuQuesionnaire(id);
-            call.enqueue(new Callback<List<Question>>() {
+            Call<List<Question>> getQuestions = api.getQuestionDuQuesionnaire(id);
+
+            getQuestions.enqueue(new Callback<List<Question>>() {
                 @Override
                 public void onResponse(Call<List<Question>> call, Response<List<Question>> response) {
-                    /*
-                    if (response.body().contains("idQuestionnaire")){
-
-                        List<Question> questions = response.body();
-                        Toast.makeText(QuizActivity.this,questions.get(0).getTitleQues()+"" , Toast.LENGTH_SHORT).show();
-                        chargementQuestion(questions.get(0));
-
-
-                    }
-                    else {
-                        Toast.makeText(QuizActivity.this, "koikoubé", Toast.LENGTH_SHORT).show();
-                    }
-
-                     */
-                    System.out.println(response.body());
+                    System.out.println("Response " + response);
                 }
 
                 @Override
                 public void onFailure(Call<List<Question>> call, Throwable t) {
-                    Toast.makeText(QuizActivity.this, "babaje", Toast.LENGTH_SHORT).show();
+
                 }
             });
         }
