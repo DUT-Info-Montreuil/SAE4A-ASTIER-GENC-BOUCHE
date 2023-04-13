@@ -58,12 +58,16 @@ public class ConnexionActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //Toast.makeText(ConnexionActivity.this, response, Toast.LENGTH_SHORT).show();
-                        if(response.contains("Connecte")) {
+                        System.out.println(response);
+                        if(response.contains(pseudo.getText().toString()) && response.contains(mdp.getText().toString())) {
                             recupId();
                             Intent intent = new Intent(ConnexionActivity.this, AccueilActivity.class);
                             startActivity(intent);
                             finish();
+                        }
+
+                        else {
+                            Toast.makeText(ConnexionActivity.this, "Cassé", Toast.LENGTH_SHORT).show();
                         }
 
                     }
