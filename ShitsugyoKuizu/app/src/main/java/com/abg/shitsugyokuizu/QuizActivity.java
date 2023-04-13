@@ -39,11 +39,6 @@ public class QuizActivity extends AppCompatActivity {
     private Button mAnswerButton2;
     private Button mAnswerButton3;
     private Button mAnswerButton4;
-    private boolean mEnableTouchEvents;
-
-    private int mScore;
-    private int mRemainingQuestionCount;
-    private int selectedID;
     public static int score = 0;
     public static int curseur = 0;
 
@@ -60,11 +55,6 @@ public class QuizActivity extends AppCompatActivity {
         mAnswerButton3 = findViewById(R.id.button3);
         mAnswerButton4 = findViewById(R.id.button4);
 
-        if (savedInstanceState != null) {
-            mScore = savedInstanceState.getInt(BUNDLE_STATE_SCORE);
-            mRemainingQuestionCount = savedInstanceState.getInt(BUNDLE_STATE_QUESTION_COUNT);
-            //questionnaire = SELECT * IN questionnaire where id = selectedID;
-        }
         Intent i = getIntent();
         int id = i.getIntExtra("id", -1);
         System.out.println(id);
@@ -166,85 +156,6 @@ public class QuizActivity extends AppCompatActivity {
         //displayQuestion(questionnaire);
     }
 
-    public void onClick(View v) {
-        int index;
-
-        if (v == mAnswerButton1) {
-            index = 0;
-        } else if (v == mAnswerButton2) {
-            index = 1;
-        } else if (v == mAnswerButton3) {
-            index = 2;
-        } else if (v == mAnswerButton4) {
-            index = 3;
-        } else {
-            throw new IllegalStateException("Unknown clicked view : " + v);
-        }
-
-        /*if (index == mQuestionBank.getCurrentQuestion().getAnswerIndex()) { A adapter avec l'API
-            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
-            mScore++;
-        } else {
-            Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
-        }*/
-
-        mEnableTouchEvents = false;
-
-        new Handler(getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mEnableTouchEvents = true;
-
-                mRemainingQuestionCount--;
-
-                /*if (mRemainingQuestionCount <= 0) { IDEM
-                    endGame();
-                } else {
-                    displayQuestion(mQuestionBank.getNextQuestion());
-                }*/
-            }
-        }, 2_000);
-    }
-
-    /*private void displayQuestion(final Question question) {
-        // Set the text for the question text view and the four buttons
-        int questionId = SELECT id from question where questionnaireID = selectedID;
-
-        ArrayList<String> answers = SELECT intulé from réponse where ID = questionId
-        mTextViewQuestion.setText(SELECT intitulé from question where questionID = questionId);
-        mAnswerButton1.setText(answers.get(0));
-        mAnswerButton2.setText(answers.get(1));
-        mAnswerButton3.setText(answers.get(2));
-        mAnswerButton4.setText(answers.get(3));
-    }*/
-
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putInt(BUNDLE_STATE_SCORE, mScore);
-        outState.putInt(BUNDLE_STATE_QUESTION_COUNT, mRemainingQuestionCount);
-        //outState.putSerializable(BUNDLE_STATE_QUESTION_BANK, Questionnaire);
-    }
-
-    private void endGame() {
-        // No question left, end the game
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setTitle("Well done!")
-                .setMessage("Your score is " + mScore)
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent();
-                        intent.putExtra(BUNDLE_EXTRA_SCORE, mScore);
-                        setResult(Activity.RESULT_OK, intent);
-                        finish();
-                    }
-                })
-                .create()
-                .show();
-    }
     public void chargementQuestion(Question question){
         mTextViewQuestion.setText(question.getIntitule());
         mAnswerButton1.setText(question.getReponse1());
