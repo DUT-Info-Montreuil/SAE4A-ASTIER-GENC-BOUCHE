@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AllQuizz">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/accountAllQuiz_button"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="fitEnd"
+            app:srcCompat="@drawable/profil_icon_white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <SearchView
+            android:id="@+id/quiz_searchbar"
+            android:layout_width="253dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#DFAF2C"
+            android:hint="Chercher des quiz"
+            android:inputType="text" />
+
+        <Toolbar
+            android:id="@+id/genre_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="100dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_menu"
+        android:layout_width="match_parent"
+        android:layout_height="427dp"
+        android:scrollbars="horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/plusAllQuiz_button"
+                android:layout_width="wrap_content"
+                android:layout_height="82dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="0.5"
+                android:background="@color/design_default_color_background"
+                android:backgroundTint="#095228"
+                android:scaleType="center"
+                app:srcCompat="@drawable/plus_white" />
+
+            <ImageButton
+                android:id="@+id/interroAllQuiz_button"
+                android:layout_width="117dp"
+                android:layout_height="82dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="0.5"
+                android:background="@color/design_default_color_background"
+                android:backgroundTint="#095228"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/interrogation_black" />
+
+            <ImageButton
+                android:id="@+id/trophyAllQuiz_button"
+                android:layout_width="wrap_content"
+                android:layout_height="82dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="0.5"
+                android:background="@color/design_default_color_background"
+                android:backgroundTint="#095228"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/trophy_white" />
+
+        </LinearLayout>
+
+    </LinearLayout>

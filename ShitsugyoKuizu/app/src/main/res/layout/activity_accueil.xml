@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AccueilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/accountAccueil_button"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="fitEnd"
+            app:srcCompat="@drawable/profil_icon_white"
+            android:contentDescription="leadsToAccountActivity(not created yet)" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dernierQuiz_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
+            android:text="Dernier quiz effectué"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dernierQuizUn_button"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="A paramétrer"
+                android:backgroundTint="#DFAF2C" />
+
+            <Button
+                android:id="@+id/dernierQuizDeux_button"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="A paramétrer"
+                android:backgroundTint="#DFAF2C"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dernierQuizTrois_button"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="A paramétrer"
+                android:backgroundTint="#DFAF2C" />
+
+            <Button
+                android:id="@+id/dernierQuizQuatre_button"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="A paramétrer"
+                android:backgroundTint="#DFAF2C" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/quizDuMois_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
+            android:text="Quiz du mois"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/quizDuMoisUn_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:text="A paramétrer"
+            android:backgroundTint="#DFAF2C" />
+
+        <Button
+            android:id="@+id/quizDuMoisDeux_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:text="A paramétrer"
+            android:backgroundTint="#DFAF2C" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/quizDuMoisTrois_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:text="A paramétrer"
+            android:backgroundTint="#DFAF2C" />
+
+        <Button
+            android:id="@+id/quizDuMoisQuatre_button"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:text="A paramétrer"
+            android:backgroundTint="#DFAF2C" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/plusAccueil_button"
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="center"
+            app:srcCompat="@drawable/plus_white"
+            android:contentDescription="leadsToMyQuiz" />
+
+        <ImageButton
+            android:id="@+id/interroAccueil_button"
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/interrogation_white"
+            android:contentDescription="leadsToAllQuiz" />
+
+
+        <ImageButton
+            android:id="@+id/trophyAccueil_button"
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.5"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#095228"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/trophy_white"
+            android:contentDescription="leadsToTrophyActivity(not created yet)" />
+
+    </LinearLayout>
+
+</LinearLayout>
