@@ -5,12 +5,14 @@ import androidx.appcompat.view.menu.MenuAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,10 +38,16 @@ public class AllQuizz extends AppCompatActivity {
     ArrayList<Questionnaire> lesQuiz = new ArrayList<Questionnaire>();
     private QuestionnaireAdapter menuAdapter;
 
+    private ImageButton plusButton, trophyButton, profilButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_quizz);
+
+        plusButton = findViewById(R.id.plusAllQuiz_button);
+        trophyButton = findViewById(R.id.trophyAllQuiz_button);
+        profilButton = findViewById(R.id.accountAllQuiz_button);
 
         API api = RetrofitClientInstance.getRetrofitInstance().create(API.class);
         Call<List<Questionnaire>> getAllQuiz = api.getAllQuestionnaires();
@@ -73,6 +81,28 @@ public class AllQuizz extends AppCompatActivity {
         recyclerViewMenu = findViewById(R.id.recyclerview_menu);
         recyclerViewMenu.setAdapter(menuAdapter);
         recyclerViewMenu.setLayoutManager(layoutManager);
+
+        plusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AllQuizz.this, MyQuiz.class);
+                startActivity(intent);
+            }
+        });
+        trophyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AllQuizz.this, TrophyActivity.class);
+                startActivity(intent);
+            }
+        });
+        profilButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AllQuizz.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //        searchBar = (SearchView) findViewById(R.id.quiz_searchbar);
 //        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".TrophyActivity">
 
+    <ListView
+        android:id="@+id/score_listview"
+        android:layout_width="409dp"
+        android:layout_height="614dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="116dp" />
+
+    <TextView
+        android:id="@+id/score_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scores au questionnaires"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/_dynamic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnknownId" />
 </androidx.constraintlayout.widget.ConstraintLayout>

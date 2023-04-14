@@ -84,18 +84,13 @@ public class InscriptionActivity extends AppCompatActivity{
                     StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-
-
                             // on below line we are displaying a success toast message.
                             Toast.makeText(InscriptionActivity.this, "Data added to API", Toast.LENGTH_SHORT).show();
-                            try {
-                                // on below line we are parsing the response
-                                // to json object to extract data from it.
-                                JSONObject respObj = new JSONObject(response);
 
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                            if(response.contains("Inscription done !")) {
+                                Intent intent = new Intent(InscriptionActivity.this, ConnexionActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         }
                     }, new com.android.volley.Response.ErrorListener() {

@@ -58,7 +58,7 @@ public class ConnexionActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(response.contains(pseudo.getText().toString()) && response.contains(mdp.getText().toString())) {
+                        if(response.contains(pseudo.getText().toString())) {
                             recupId();
                             Intent intent = new Intent(ConnexionActivity.this, AccueilActivity.class);
                             startActivity(intent);
